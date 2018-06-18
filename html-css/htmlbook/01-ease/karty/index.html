@@ -1,0 +1,42 @@
+﻿<!-- description: http://htmlbook.ru/practical/karty -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title>Карты</title>
+    <style>
+      .card::before {
+        margin-right: 5px;
+      }
+    
+      .card.spades::before {
+        content: '\2660';
+      }
+      
+      .card.clubs::before {
+        content: '\2663';
+      }
+      
+      .card.diamonds::before,
+      .card.hearts::before {
+        color: red;
+      }
+      
+      .card.diamonds::before {
+        content: '\2665';
+      }
+      
+      .card.hearts::before {
+        content: '\2666';
+      }
+    </style>
+  </head>
+  <body>
+    <div class="cards">
+      <p class="card spades">8, 9</p>
+      <p class="card clubs">8, 9</p>
+      <p class="card diamonds">7, 10, B</p>
+      <p class="card hearts">7, 8, 9</p>
+    </div>
+  </body>
+</html>
