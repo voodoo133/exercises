@@ -1,0 +1,38 @@
+﻿<!-- description: http://learn.javascript.ru/task/fibonacci-numbers -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+  </head>
+  <body>
+    <script>
+      /*
+      function fib(n) { 
+        var fib_num = [1, 1];
+        
+        for (var i = 2; i < n; i++) {
+          fib_num.push(fib_num[i - 1] + fib_num[i - 2]);
+        }
+        
+        return fib_num[fib_num.length - 1];
+      }
+      */
+      
+      function fib(n) { 
+        var a = 1, b = 1;
+        
+        for (var i = 2; i < n; i++) {
+          var c = a + b;
+          a = b;
+          b = c;
+        }
+        
+        return c;
+      }
+
+      console.log( fib(3) ); // 2
+      console.log( fib(7) ); // 13
+      console.log( fib(77)); // 5527939700884757
+    </script>
+  </body>
+</html>

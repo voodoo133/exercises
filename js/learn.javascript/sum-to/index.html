@@ -1,0 +1,32 @@
+<!-- description: http://learn.javascript.ru/task/sum-to -->
+<html>
+  <head>
+    <meta charset="utf-8"/>
+  </head>
+  <body>
+    <script>
+      function sumTo1 (n)
+      {
+        var s = 0;
+        
+        for (var i = 1; i <= n; i++) s += i;
+        
+        return s;
+      }
+    
+      function sumTo2 (n)
+      {
+        return (n == 1) ? 1 : n + sumTo1(n - 1);
+      }
+      
+       function sumTo3 (n)
+      {
+        return ((1 + n) / 2) * n;
+      }
+      
+      console.log(sumTo1(100));
+      console.log(sumTo2(100));
+      console.log(sumTo3(100));
+    </script>
+  </body>
+</html>
