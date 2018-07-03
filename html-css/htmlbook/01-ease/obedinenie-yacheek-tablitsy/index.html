@@ -1,0 +1,54 @@
+<!-- description: http://htmlbook.ru/practical/obedinenie-yacheek-tablitsy -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />  
+    <title>Добыча</title>
+    <style type="text/css">
+      .table {
+        width: 600px;
+        margin: 0 auto;
+        
+        border: 1px solid #000;
+        border-collapse: separate;
+      }
+      
+      .table .table-cell {
+        padding: 5px;
+        
+        border: 1px solid #000;
+      }
+      
+      .table .table-row:last-child .table-cell:last-child {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <table class="table">
+      <caption class="table-caption">Добыча драгоценных камней</caption>
+      <tr class="table-row table-header-row">
+        <th class="table-cell"></th>
+        <th class="table-cell">2010</th>
+        <th class="table-cell">2012</th>
+        <th class="table-cell">2014</th>
+      </tr>
+      <tr class="table-row">
+        <td class="table-cell">Сапфиры</td>
+        <td class="table-cell" rowspan="2">1483</td>
+        <td class="table-cell">4532</td>
+        <td class="table-cell">6743</td>
+      </tr>
+      <tr class="table-row">
+        <td class="table-cell">Рубины</td>
+        <td class="table-cell">3835</td>
+        <td class="table-cell">7482</td>
+      </tr>
+      <tr class="table-row">
+        <td class="table-cell">Алмазы</td>
+        <td class="table-cell">683</td>
+        <td class="table-cell" colspan="2">238</td>
+      </tr>
+    </table>
+  </body>
+</html>
