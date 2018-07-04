@@ -1,0 +1,122 @@
+<!-- description: http://htmlbook.ru/practical/opyat-tablicy -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <title>Опять таблицы</title>
+    <style type="text/css">
+      body {
+        background-color: #001646;
+      }
+    
+      .table {
+        width: 970px;
+        margin: 0 auto;
+        
+        font-family: Arial;
+        
+        border: 0;
+        border-spacing: 0;
+      }
+      
+      .table .table-cell {
+        padding: 5px;
+      }
+           
+      .table .table-logo {
+        height: 280px;
+      }
+      
+      .table .table-content {
+        background-color: #000;
+      }
+      
+      .table-content .table-cell {
+        color: #fff;
+      }
+      
+      .table-content .table-cell:first-child {
+        width: 200px;
+        
+        vertical-align: top;
+      }
+      
+      .table-content .table-cell:last-child {
+        font-family: Verdana;
+      }
+      
+      .table-text {
+        font-size: small;
+        text-align: justify;
+      }
+      
+      .subtable {
+        border: 0;
+      }
+      
+      .subtable-cell {
+        height: 30px;
+        
+        font-weight: 700;
+        
+        background-image: url("./images/back.jpg");
+      }
+      
+      .table-footer {
+        height: 20px;
+      }
+      
+      .table-footer .table-cell {
+        color: #fff;
+        text-align: center;
+        
+        background-color: #103898;
+      }
+    </style>
+  </head>
+  <body>
+    <table class="table">
+      <tr class="table-row table-logo">
+        <td class="table-cell" colspan="2"> 
+          <img src="./images/header.jpg" alt="table-logo" />
+        </td>
+      </tr>
+      <tr class="table-row table-content">
+        <td class="table-cell">
+          <table class="subtable">
+            <tr class="subtable-row">
+              <td class="subtable-cell">Главная</td>
+            </tr>
+            <tr class="subtable-row">
+              <td class="subtable-cell">Новости</td>
+            </tr>
+            <tr class="subtable-row">
+              <td class="subtable-cell">О компании</td>
+            </tr>
+            <tr class="subtable-row">
+              <td class="subtable-cell">Продукция</td>
+            </tr>
+            <tr class="subtable-row">
+              <td class="subtable-cell">Контакты</td>
+            </tr>
+          </table>
+        </td> 
+        <td class="table-cell">
+          <p class="table-text">
+            Декретное время пространственно неоднородно. Ганимед ищет азимут, тем не менее, 
+            Дон Еманс включил в список всего 82-е Великие Кометы. Гелиоцентрическое расстояние 
+            постоянно. Каллисто ищет космический лимб, однако большинство спутников движутся 
+            вокруг своих планет в ту же сторону, в какую вращаются планеты. Эпоха решает 
+            радиант, хотя это явно видно на фотогpафической пластинке, полученной с 
+            помощью 1.2-метpового телескопа.
+          </p>
+        </td>
+      </tr>
+      <tr class="table-row table-footer">
+        <td class="table-cell" colspan="2">
+          &copy; Copyright ME, 2013
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>
