@@ -1,0 +1,107 @@
+<!-- description: http://htmlbook.ru/practical/opyat-tablicy -->
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <title>Опять таблицы</title>
+    <style>
+      body {
+        background-color: #001646;
+      }
+    
+      .block {
+        width: 970px;
+        margin: 0 auto;
+        
+        font-family: Arial;
+      }
+      
+      .block-header {
+        display: flex;
+        align-items: center;
+        height: 280px;
+      }
+      
+      .block-content {
+        display: flex;
+        
+        background-color: #000;
+      }
+      
+      .block-aside {
+        width: 200px;
+        padding: 5px;
+        flex-shrink: 0;
+        
+        color: #fff;
+      }
+      
+      .block-menu {
+        margin: 0;
+        padding: 0;
+        
+        font-weight: 700;
+        
+        list-style-type: none;
+      }
+      
+      .block-menu .menu-item {
+        display: flex;
+        align-items: center;
+        height: 30px;
+        padding: 2px;
+        
+        background-image: url(./images/back.jpg);
+      }
+      
+      .block-content-text {
+        padding: 5px;
+        align-self: center;
+        
+        font-family: Verdana;
+        font-size: small;
+        text-align: justify;
+        color: #fff;
+      }
+      
+      .block-footer {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 20px;
+        padding: 5px;
+        
+        color: #fff;
+        text-align: center;
+        
+        background-color: #103898;
+      }
+      
+    </style>
+  </head>
+  <body>
+    <section class="block">
+      <div class="block-header">
+        <img src="./images/header.jpg" alt="block-logo" />
+      </div>
+      <div class="block-content">
+        <aside class="block-aside">
+          <ul class="block-menu">
+            <li class="menu-item">Главная</li>
+            <li class="menu-item">Новости</li>
+            <li class="menu-item">О компании</li>
+            <li class="menu-item">Продукция</li>
+            <li class="menu-item">Контакты</li>
+          </ul>
+        </aside>
+        <div class="block-content-text"> 	
+          Декретное время пространственно неоднородно. Ганимед ищет азимут, тем не менее, Дон Еманс включил в список всего 82-е Великие Кометы. 
+          Гелиоцентрическое расстояние постоянно. Каллисто ищет космический лимб, однако большинство спутников движутся вокруг своих планет в ту же сторону, 
+          в какую вращаются планеты. Эпоха решает радиант, хотя это явно видно на фотогpафической пластинке, полученной с помощью 1.2-метpового телескопа.
+        </div>
+      </div>
+      <div class="block-footer">
+        &copy; Copyright ME, 2013
+      </div>
+    </section>
+  </body>
+</html>
