@@ -1,0 +1,44 @@
+﻿<!-- description: http://htmlbook.ru/practical/sozdanie-tablitsy -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title>Создание таблицы</title>
+    <style>
+      .table {
+        width: 600px;
+        margin: 15px auto;
+        
+        border-collapse: collapse;
+      }
+      
+      .table .table-row .table-cell:first-of-type {
+        width: 150px;
+      }
+      
+      .table .table-row .table-cell {
+        padding: 5px;
+        
+        vertical-align: top;
+        
+        border: 1px solid black;
+      } 
+    </style>
+  </head>
+  <body>
+    <table class="table">
+      <tr class="table-row">
+        <td class="table-cell">1</td>
+        <td class="table-cell">2</td>
+      </tr>
+      <tr class="table-row">
+        <td class="table-cell">3</td>
+        <td class="table-cell">4</td>
+      </tr>
+      <tr class="table-row">
+        <td class="table-cell">5</td>
+        <td class="table-cell">6</td>
+      </tr>
+    </table>
+  </body>
+</html>
