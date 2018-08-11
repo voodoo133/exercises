@@ -1,0 +1,53 @@
+﻿<!-- description: http://htmlbook.ru/practical/stihotvorenie -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title>Стихотворение</title>
+    <style>
+      .poem {
+        width: 300px;
+        margin: 15px auto;
+      }
+      
+      .poem-author {
+        font-weight: 400;
+        text-align: center;
+      }
+      
+      .poem-year {
+        text-align: center;
+      }
+      
+      .poem-year::before {
+        content: "—";
+        margin-right: 3px;
+      }
+      
+      .poem-year::after {
+        content: "—";
+        margin-left: 3px;
+      }
+    </style>
+  </head>
+  <body>
+    <section class="poem">
+      <h2 class="poem-author">Евгений Евтушенко</h2>
+      <div class="poem-year">1955</div>
+      <pre class="poem-text">
+        Бывало, спит у ног собака,
+        костер занявшийся гудит,
+        и женщина из полумрака
+        глазами зыбкими глядит.
+
+        Потом под пихтою приляжет
+        на куртку рыжую мою
+        и мне,
+           задумчивая,
+                    скажет:
+        «А ну-ка, спой!..» —
+                        и я пою.
+      </pre>
+    </section>
+  </body>
+</html>
