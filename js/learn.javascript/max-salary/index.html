@@ -1,0 +1,39 @@
+<!-- description: http://learn.javascript.ru/task/max-salary -->
+<html>
+  <head>
+    <meta charset="utf-8"/>
+  </head>
+  <body>
+    <script>
+      "use strict";
+      
+      function isEmpty(obj) {
+        for (var key in obj) return false;
+        
+        return true;
+      }
+
+      var salaries = {
+        "Вася": 100,
+        "Петя": 300,
+        "Даша": 250
+      };
+      
+      if (isEmpty(salaries)) {
+        console.log('Нет сотрудников');
+      } else {
+        var max = 0;
+        var employee = '';
+        for (var name in salaries) {
+          if (salaries[name] > max) {
+            max = salaries[name];
+            employee = name; 
+          }  
+        }
+        
+        console.log(employee);
+      }
+      
+    </script>
+  </body>
+</html>
