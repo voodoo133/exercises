@@ -1,0 +1,50 @@
+﻿<!-- description: http://htmlbook.ru/practical/tsvet-i-fon-v-tablitse -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title>Цвет и фон в таблице</title>
+    <style>
+      .table {
+        width: 100%;
+        
+        font-size: 32px;
+        
+        border: 0;
+        border-collapse: collapse;
+      }
+      
+      .table-cell {
+        width: 33%;
+        padding: 5px;
+      }
+      
+      .table-cell:nth-of-type(1) {
+        color: white;
+        
+        background-color: red;
+      }
+      
+      .table-cell:nth-of-type(2) {
+        color: grey;
+        
+        background-color: orange;
+      }
+      
+      .table-cell:nth-of-type(3) {
+        color: black;
+        
+        background-color: yellow;
+      }
+    </style>
+  </head>
+  <body>
+    <table class="table">
+      <tr class="table-row">
+        <td class="table-cell">Шаг 1</td>
+        <td class="table-cell">Шаг 2</td>
+        <td class="table-cell">Шаг 3</td>
+      </tr>
+    </table>
+  </body>
+</html>
