@@ -1,0 +1,51 @@
+﻿<!-- description: http://htmlbook.ru/practical/batareyka -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title>Батарейка</title>
+    <style>
+      .battery {
+        position: relative;
+        
+        width: 150px;
+        height: 50px;
+        margin-bottom: 10px;
+        
+        border: 3px solid #000;
+      }
+            
+      .battery::after {
+        content: '';
+        
+        position: absolute;
+        top: 50%;
+        right: -9px;
+        
+        width: 6px;
+        height: 40%;
+        
+        background-color: #000;
+        
+        transform: translateY(-50%);
+      }
+      
+      .battery.low {
+        background: linear-gradient(to right, #eb1c23 0%, #eb1c23 33%, #fff 33%);
+      }
+      
+      .battery.medium {
+        background: linear-gradient(to right, #ffc20d 0%, #ffc20d 66%, #fff 33%);
+      }
+      
+      .battery.high {
+        background-color: #009e52;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="battery low"></div>
+    <div class="battery medium"></div>
+    <div class="battery high"></div>
+  </body>
+</html>

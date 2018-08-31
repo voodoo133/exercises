@@ -1,0 +1,46 @@
+﻿<!-- description: http://htmlbook.ru/practical/chereduyushchiesya-kvadraty -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title>Чередующиеся квадраты</title>
+    <style>
+      .squares {
+        display: flex;
+        justify-content: center;
+        margin: 0;
+        padding: 0;
+        
+        list-style-type: none;
+      }
+    
+      .square {
+        width: 50px;
+        height: 50px;
+        margin-left: 5px;
+        margin-right: 5px;
+      }
+    
+      .square:nth-of-type(odd) {
+        background-color: #000;
+      }
+      
+      .square:nth-of-type(even) {
+        background-color: #009abf;
+      }
+      
+      .square:hover {
+        background-color: #ff9f19;
+      }
+    </style>
+  </head>
+  <body>
+    <ul class="squares">
+      <li class="square"></li>
+      <li class="square"></li>
+      <li class="square"></li>
+      <li class="square"></li>
+      <li class="square"></li>
+    </ul>
+  </body>
+</html>
