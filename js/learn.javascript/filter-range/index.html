@@ -1,0 +1,19 @@
+<!-- description: http://learn.javascript.ru/task/filter-range -->
+<html>
+  <head>
+    <meta charset="utf-8"/>
+  </head>
+  <body>
+    <script>
+      function filterRange(arr, a, b) {
+        return arr.filter((e) => (a <= e && e <= b));
+      }
+    
+      var arr = [5, 4, 3, 8, 0];
+
+      var filtered = filterRange(arr, 3, 5);
+      
+      console.log(filtered);
+    </script>
+  </body>
+</html>
