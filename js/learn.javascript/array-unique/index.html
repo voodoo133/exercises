@@ -1,0 +1,20 @@
+<!-- description: http://learn.javascript.ru/task/array-unique -->
+<html>
+  <head>
+    <meta charset="utf-8"/>
+  </head>
+  <body>
+    <script>
+      function unique(arr) 
+      {
+        return arr.filter((e, i, a) => a.indexOf(e, i) === a.lastIndexOf(e));
+      }
+
+      var strings = ["кришна", "кришна", "харе", "харе",
+        "харе", "харе", "кришна", "кришна", "8-()"
+      ];
+
+      console.log( unique(strings) ); // кришна, харе, 8-()
+    </script>
+  </body>
+</html>

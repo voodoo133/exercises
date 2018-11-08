@@ -1,0 +1,63 @@
+<!-- description: http://learn.javascript.ru/task/output-single-linked-list -->
+<html>
+  <head>
+    <meta charset="utf-8"/>
+  </head>
+  <body>
+    <script>
+      function printListLoop (list)
+      {
+        while (list) {
+          console.log(list.value)
+          list = list.next;
+        }
+      }
+      
+      function printListRecursion (list)
+      {
+        if (list) {
+          console.log(list.value);
+          printListRecursion(list.next);
+        }
+      }
+      
+      function printReverseListRecursion (list)
+      {
+        if (list.next) printReverseListRecursion(list.next);
+        console.log(list.value);
+      }
+      
+      function printReverseListLoop (list)
+      {
+        var arr = [];
+        
+        while (list) {
+          arr.push(list.value)
+          list = list.next;
+        }
+        
+        arr.reverse().forEach(e => console.log(e));
+      }
+    
+      var list = {
+        value: 1,
+        next: {
+          value: 2,
+          next: {
+            value: 3,
+            next: {
+              value: 4,
+              next: null
+            }
+          }
+        }
+      };
+      
+      printListLoop(list);
+      printListRecursion(list);
+      printReverseListRecursion(list);
+      printReverseListLoop(list);
+      
+    </script>
+  </body>
+</html>

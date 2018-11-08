@@ -8,7 +8,7 @@
     <script>
       function randomInt (min, max)
       {
-        return min + Math.random() * (max - min + 1) ^ 0;
+        return Math.floor(min + Math.random() * (max - min + 1));
       }
     </script>
   </body>

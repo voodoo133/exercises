@@ -1,0 +1,28 @@
+<!-- description: http://learn.javascript.ru/task/add-class -->
+<html>
+  <head>
+    <meta charset="utf-8"/>
+  </head>
+  <body>
+    <script>
+      function addClass (obj, cls)
+      {
+        var class_list = obj.className ? obj.className.split(' ') : [];
+        
+        if (!~class_list.indexOf(cls)) class_list.push(cls);
+        
+        obj.className = class_list.join(' ');
+      }
+    
+      var obj = {
+        className: 'open menu'
+      };
+      
+      addClass(obj, 'new'); 
+      addClass(obj, 'open');
+      addClass(obj, 'me');
+
+      alert(obj.className); // "open menu new me"
+    </script>
+  </body>
+</html>
