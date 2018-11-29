@@ -1,0 +1,74 @@
+﻿<!-- description: http://htmlbook.ru/practical/granitsa-vokrug-formy -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title></title>
+    <style>
+      .form__group {
+        background: #e2e3ba url('http://htmlbook.ru/files/check-bg.png') no-repeat 8px 8px;
+        border-width: 1px;
+        border-color: #5b7854;
+      }
+    
+      .form__group-header {
+        font-size: 18px;
+        font-weight: 700;
+        color: #a15d66;
+      }
+      
+      .form__question {
+        margin-top: 0px;
+        margin-bottom: 20px;
+        
+        font-size: 16px;
+      }
+      
+      .form__answer {
+        display: block;
+        margin-left: 145px;
+        margin-bottom: 20px;
+      }
+      
+      .form__button {
+        margin-left: 145px;
+        margin-bottom: 15px;
+        padding: 3px 7px;
+        
+        color: #fff;
+        
+        background-color: #b88d5c;
+        border: 1px solid #fff;
+      }
+    </style>
+  </head>
+  <body>
+    <form class="form" action="">
+      <fieldset class="form__group">
+        <legend class="form__group-header">Выбор варианта</legend>
+        <h2 class="form__question">Какой раздел психологии изучает познавательные процессы человеческого сознания?</h2>
+        <label class="form__answer" for="">
+          <input class="form__answer-checkbox" type="radio" name="" id="" />
+          <span class="form__answer-text">Психоанализ</span>
+        </label>
+        <label class="form__answer" for="">
+          <input class="form__answer-checkbox" type="radio" name="" id="" />
+          <span class="form__answer-text">Бихевиоризм</span>
+        </label>
+        <label class="form__answer" for="">
+          <input class="form__answer-checkbox" type="radio" name="" id="" />
+          <span class="form__answer-text">Когнитивная психология</span>
+        </label>
+        <label class="form__answer" for="">
+          <input class="form__answer-checkbox" type="radio" name="" id="" />
+          <span class="form__answer-text">Гуманистическая психология</span>
+        </label>
+        <label class="form__answer" for="">
+          <input class="form__answer-checkbox" type="radio" name="" id="" />
+          <span class="form__answer-text">Гештальт-психология</span>
+        </label>
+        <button class="form__button" type="submit">Ответить</button>
+      </fieldset> 
+    </form>
+  </body>
+</html>
