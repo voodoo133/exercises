@@ -5,10 +5,47 @@
     <meta charset="utf-8"/>
     <title></title>
     <style>
+      button {
+        padding: 5px 10px;
+        
+        border-radius: 4px;
+      }
       
+      button:nth-of-type(1) {
+        border: 1px solid #666;
+        background: linear-gradient(to bottom, #04bcd9, #e3fcfc);
+      }
+      
+      button:nth-of-type(2) {
+        border: 1px solid #666;
+        background: linear-gradient(to bottom, #4aed62, #39b84c, #4aed62);
+      }
+      
+      button:nth-of-type(3) {
+        color: #fff;
+        
+        border: 1px solid #666;
+        background: linear-gradient(to top, #04bcd9 25%, #d8eef2);
+      }
+      
+      button:nth-of-type(4) {
+        color: #fff;
+        
+        border: 2px solid #666;
+        background: linear-gradient(to top, #212121, #ededed);
+      }
+      
+      button:nth-of-type(5) {
+        border: 2px inset #f0f0f0;
+        background: linear-gradient(to bottom, #e6e6e6, #c2c2c2);
+      }
     </style>
   </head>
   <body>
-    
+    <button type="button">Простой градиент</button>
+    <button type="button">Выпуклая кнопка</button>
+    <button type="button">Другая выпуклая кнопка</button>
+    <button type="button">Кнопка в стиле Веб 2.0</button>
+    <button type="button">Вдавленная кнопка</button>
   </body>
 </html>
