@@ -1,0 +1,67 @@
+﻿<!-- description: http://htmlbook.ru/practical/znachki-dlya-listaniya-fotografii -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title></title>
+    <style>
+      .photo {
+        position: relative;
+        
+        width: 600px;
+        height: 380px;
+      }
+      
+      .photo__nav {
+        position: absolute;
+        bottom: 16px;
+        left: 50%;
+  
+        display: flex;
+        margin: 0;
+        padding: 0;
+  
+        list-style: none;
+              
+        transform: translateX(-50%);
+      }
+      
+      .photo__nav-item {
+        width: 10px;
+        height: 10px;
+        margin-right: 10px;
+        
+        border: 2px solid #fff;
+        border-radius: 50%;
+        background-color: #030102;
+        
+        cursor: pointer;
+      }
+      
+      .photo__nav-item--active {
+        background-color: #c20300;
+        
+        box-shadow: 0 0 7px 2px #fff;
+        
+        cursor: default;
+      }
+      
+      .photo__nav-item:last-of-type {
+        margin-right: 0;  
+      }
+      
+    </style>
+  </head>
+  <body>
+    <div class="photo">
+      <img class="photo__pic" src="http://htmlbook.ru/files/river.jpg" width="600" height="380" alt="Фотография" />
+      <ul class="photo__nav">
+        <li class="photo__nav-item"></li>
+        <li class="photo__nav-item photo__nav-item--active"></li>
+        <li class="photo__nav-item"></li>
+        <li class="photo__nav-item"></li>
+        <li class="photo__nav-item"></li>
+      </ul>
+    </div>
+  </body>
+</html>

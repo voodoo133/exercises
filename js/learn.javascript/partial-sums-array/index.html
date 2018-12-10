@@ -1,0 +1,21 @@
+<!-- description: http://learn.javascript.ru/task/partial-sums-array -->
+<html>
+  <head>
+    <meta charset="utf-8"/>
+  </head>
+  <body>
+    <script>
+      function getSums (arr) {
+        return arr.map((item, i, arr) => {
+          return arr.slice(0, i + 1).reduce((p,c) => p + c, 0);
+        });
+      }
+      
+      var arr = [1,2,3,4,5];
+    
+      var sums_arr = getSums(arr);
+      
+      console.log(sums_arr);
+    </script>
+  </body>
+</html>
