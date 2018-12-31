@@ -1,0 +1,19 @@
+<!-- description: http://learn.javascript.ru/task/get-seconds-to-tomorrow -->
+<html>
+  <head>
+    <meta charset="utf-8"/>
+  </head>
+  <body>
+    <script>
+      function getSecondsToTomorrow()
+      {
+        var now = new Date();
+        var next_day_start = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1);
+        
+        return Math.round((next_day_start - now) / 1000);
+      }
+      
+      console.log(getSecondsToTomorrow());
+    </script>
+  </body>
+</html>

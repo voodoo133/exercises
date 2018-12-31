@@ -1,0 +1,18 @@
+<!-- description: http://learn.javascript.ru/task/weekday -->
+<html>
+  <head>
+    <meta charset="utf-8"/>
+  </head>
+  <body>
+    <script>
+      function getLocalDay (date)
+      {
+        return (~(date.getDay() - 1)) ? date.getDay() : 7;
+      }
+    
+      var date = new Date(2012, 0, 3);  // 3 янв 2012
+      console.log(getLocalDay(date));
+      
+    </script>
+  </body>
+</html>
