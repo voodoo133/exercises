@@ -1,0 +1,40 @@
+<!-- description: http://learn.javascript.ru/task/format-date-relative -->
+<html>
+  <head>
+    <meta charset="utf-8"/>
+  </head>
+  <body>
+    <script>
+      function formatDate(date) 
+      { 
+        var now = new Date();
+        var diff = (now - date) / 1000;
+        
+        if (diff < 1) return 'только что';
+        if (diff < 60) return `${diff} сек. назад`;
+        if (diff < 60 * 60) return `${Math.round(diff / 60)} мин. назад`;
+        
+        var day = date.getDate();
+        var month = date.getMonth() + 1;
+        var year = date.getFullYear() % 100;
+        var hour = date.getHours();
+        var minute = date.getMinutes();
+        
+        if (day < 10) day = '0' + day;
+        if (month < 10) month = '0' + month;
+        if (hour < 10) hour = '0' + hour;
+        if (minute < 10) minute = '0' + minute;
+        
+        return `${day}.${month}.${year} ${hour}:${minute}`;
+      }
+
+      console.log(formatDate(new Date(new Date - 1))); // "только что"
+
+      console.log(formatDate(new Date(new Date - 30 * 1000))); // "30 сек. назад"
+
+      console.log(formatDate(new Date(new Date - 5 * 60 * 1000))); // "5 мин. назад"
+
+      console.log(formatDate(new Date(new Date - 86400 * 1000))); // вчерашняя дата в формате "дд.мм.гг чч:мм"
+    </script>
+  </body>
+</html>
