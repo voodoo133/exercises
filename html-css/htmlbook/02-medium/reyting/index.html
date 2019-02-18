@@ -1,0 +1,70 @@
+﻿<!-- description: http://htmlbook.ru/practical/reyting -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title></title>
+    <style>
+      .rating {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        
+        color: #fff;
+        
+        background-color: #909496;
+        border-radius: 5px;
+      }
+      
+      .rating__number {
+        padding: 10px 30px;
+        
+        background-color: #a3c742;
+        border-radius: 5px 0 0 5px;
+      }
+      
+      .rating__vote {
+        margin-right: 15px;
+      }
+      
+      .rating__button {
+        width: 25px;
+        height: 25px;
+        
+        font-size: 18px;
+        font-weight: 700;
+        color: inherit;
+        text-align: center;
+        
+        border: none;
+        border-radius: 5px;
+        box-shadow: 0 0 5px 0 #000;
+        
+        cursor: pointer;
+      }
+      
+      .rating__button--minus {
+        background-color: #b53636;
+      }
+      
+      .rating__button--plus {
+        background-color: #9dc439;
+      }
+      
+      .rating__vote-rating {
+        margin-left: 15px;
+        margin-right: 15px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="rating">
+      <div class="rating__number">9691</div>
+      <div class="rating__vote">
+        <button class="rating__button rating__button--minus">-</button>
+        <span class="rating__vote-rating">6</span>
+        <button class="rating__button rating__button--plus">+</button>
+      </div>
+    </div>
+  </body>
+</html>

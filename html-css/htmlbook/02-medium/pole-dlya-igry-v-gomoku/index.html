@@ -4,11 +4,331 @@
   <head>
     <meta charset="utf-8"/>
     <title></title>
-    <style>
+    <style>     
+      body {
+        counter-reset: row-header-counter 16 col-header-counter 0;
+      }
+     
+      .field {
+        border-collapse: collapse;
+      }
+    
+      .field__row-header,
+      .field__col-header {
+        width: 25px;
+        height: 25px;
+        
+        font-weight: 400;
+      }
       
+      .field__row-header::before {
+        counter-increment: row-header-counter -1;
+        content: counter(row-header-counter);
+      }
+
+      .field__col-header::before {
+        counter-increment: col-header-counter;
+        content: counter(col-header-counter, upper-alpha);
+      }
+      
+      .field__cell {
+        width: 20px;
+        height: 20px;
+        
+        border: 1px solid #000;
+      }
     </style>
   </head>
   <body>
-    
+    <table class="field">
+      <tr>
+        <th class="field__row-header" colspan="2"></th>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+      </tr>
+      <tr>
+        <th class="field__row-header" colspan="2"></th>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+      </tr>
+      <tr>
+        <th class="field__row-header" colspan="2"></th>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+      </tr>
+      <tr>
+        <th class="field__row-header" colspan="2"></th>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+      </tr>
+      <tr>
+        <th class="field__row-header" colspan="2"></th>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+      </tr>
+      <tr>
+        <th class="field__row-header" colspan="2"></th>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+      </tr>
+      <tr>
+        <th class="field__row-header" colspan="2"></th>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+      </tr>
+      <tr>
+        <th class="field__row-header" colspan="2"></th>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+      </tr>
+      <tr>
+        <th class="field__row-header" colspan="2"></th>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+      </tr>
+      <tr>
+        <th class="field__row-header" colspan="2"></th>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+      </tr>
+      <tr>
+        <th class="field__row-header" colspan="2"></th>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+      </tr>
+      <tr>
+        <th class="field__row-header" colspan="2"></th>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+      </tr>
+      <tr>
+        <th class="field__row-header" colspan="2"></th>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+      </tr>
+      <tr>
+        <th class="field__row-header" colspan="2"></th>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+      </tr>
+      <tr>
+        <th class="field__row-header" colspan="2"></th>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+      </tr>
+      <tr>
+        <th colspan="2"></th>
+        <th class="field__col-header"></th>
+        <th class="field__col-header"></th>
+        <th class="field__col-header"></th>
+        <th class="field__col-header"></th>
+        <th class="field__col-header"></th>
+        <th class="field__col-header"></th>
+        <th class="field__col-header"></th>
+        <th class="field__col-header"></th>
+        <th class="field__col-header"></th>
+        <th class="field__col-header"></th>
+        <th class="field__col-header"></th>
+        <th class="field__col-header"></th>
+        <th class="field__col-header"></th>
+        <th class="field__col-header"></th>
+        <th class="field__col-header"></th>
+      </tr>
+    </table>
   </body>
 </html>

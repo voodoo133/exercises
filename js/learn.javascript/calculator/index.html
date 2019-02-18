@@ -1,0 +1,28 @@
+<!-- description: http://learn.javascript.ru/task/calculator -->
+<html>
+  <head>
+    <meta charset="utf-8"/>
+  </head>
+  <body>
+    <script>
+      var calculator = {
+        read: function () {
+          this.a = +prompt('Введите 1-ое значение');
+          this.b = +prompt('Введите 2-ое значение');
+        },
+        
+        sum: function () {
+          return this.a + this.b;
+        },
+        
+        mul: function () {
+          return this.a * this.b;
+        }
+      };
+
+      calculator.read();
+      console.log(calculator.sum());
+      console.log(calculator.mul());
+    </script>
+  </body>
+</html>

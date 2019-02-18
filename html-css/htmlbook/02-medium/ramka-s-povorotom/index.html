@@ -1,0 +1,41 @@
+﻿<!-- description: http://htmlbook.ru/practical/ramka-s-povorotom -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title></title>
+    <style>
+      .block {
+        position: relative;
+        
+        width: 150px;
+        height: 150px;
+        margin: 50px;
+        
+        background-color: #fff;
+        border: 5px solid #d9d5ce;
+        outline: 3px solid #c2b59f;
+      }
+      
+      .block::after {
+        content: '';
+        
+        position: absolute;
+        top: -5px;
+        left: -5px;
+        z-index: -1;
+        
+        width: 100%;
+        height: 100%;
+        
+        border: 5px solid #d9d5ce;
+        outline: 3px solid #c2b59f;
+        
+        transform: rotate(-6deg);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="block"></div>
+  </body>
+</html>

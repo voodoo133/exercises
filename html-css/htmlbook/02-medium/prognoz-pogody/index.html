@@ -1,0 +1,80 @@
+﻿<!-- description: http://htmlbook.ru/practical/prognoz-pogody -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title></title>
+    <style>
+      .forecast {
+        display: flex;
+        margin: 0;
+        padding: 0;
+        
+        list-style-type: none;
+      }
+      
+      .forecast__item {
+        width: 130px;
+        margin-right: 2px;
+        
+        text-align: center;
+      }
+      
+      .forecast__item:hover {
+        box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.6);
+      }
+      
+      .forecast__item:last-of-type {
+        margin-right: 0;
+      }
+      
+      .forecast__date {
+        font-size: 25px;
+        color: #fff;
+        
+        background-color: #0096b8;
+      }
+      
+      .forecast__img {
+        display: block;
+        width: 88%;
+        padding: 0 6%;
+        margin-bottom: 5px;
+      }
+      
+      .forecast__degrees {
+        display: inline-block;
+        margin-bottom: 8px;
+        
+        font-size: 30px;
+        text-align: center;
+      }
+      
+      .forecast__degrees::after {
+        content: 'o';
+        
+        font-size: 20px;
+        vertical-align: super;
+      }
+    </style>
+  </head>
+  <body>
+    <ul class="forecast">
+      <li class="forecast__item">
+        <div class="forecast__date">31.08</div>
+        <img class="forecast__img" src="http://htmlbook.ru/files/weather-sun.jpg" alt="Sun" />
+        <span class="forecast__degrees">+20</span>
+      </li>
+      <li class="forecast__item">
+        <div class="forecast__date">01.09</div>
+        <img class="forecast__img" src="http://htmlbook.ru/files/weather-snow.jpg" alt="Snow" />
+        <span class="forecast__degrees">-3</span>
+      </li>
+      <li class="forecast__item">
+        <div class="forecast__date">02.09</div>
+        <img class="forecast__img" src="http://htmlbook.ru/files/weather-blizzard.jpg" alt="Blizzard" />
+        <span class="forecast__degrees">-10</span>
+      </li>
+    </ul>
+  </body>
+</html>

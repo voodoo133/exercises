@@ -1,0 +1,56 @@
+<!-- description: http://learn.javascript.ru/task/calculator-extendable -->
+<html>
+  <head>
+    <meta charset="utf-8"/>
+  </head>
+  <body>
+    <script>
+      
+      function Calculator () {
+        var operators = {
+          "+": function (a, b) {
+            return a + b;
+          },
+          "-": function (a, b) {
+            return a - b;
+          }
+        };
+        
+        this.calculate = function (str) {
+          var expression = str.split(' ');
+          
+          var a = +expression[0];
+          var b = +expression[2];
+          var operator = expression[1];
+          
+          if (!operators[operator] || isNaN(a) || isNaN(b)) return NaN;
+            
+          return operators[operator](a, b);
+        };
+        
+        this.addMethod = function (symb, func) {
+          operators[symb] = func;
+        };
+      }
+    
+      var calc = new Calculator;
+
+      alert( calc.calculate("3 + 7") ); // 10
+      
+      var powerCalc = new Calculator;
+      
+      powerCalc.addMethod("*", function(a, b) {
+        return a * b;
+      });
+      powerCalc.addMethod("/", function(a, b) {
+        return a / b;
+      });
+      powerCalc.addMethod("**", function(a, b) {
+        return Math.pow(a, b);
+      });
+
+      var result = powerCalc.calculate("2 ** 3");
+      alert( result ); // 8
+    </script>
+  </body>
+</html>
