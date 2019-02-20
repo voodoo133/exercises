@@ -1,0 +1,44 @@
+<!-- description: http://learn.javascript.ru/task/format-date-polymorphic -->
+<html>
+  <head>
+    <meta charset="utf-8"/>
+  </head>
+  <body>
+    <script>
+      function formatDate(date) { 
+        var d;
+        
+        if (typeof date === 'string') {
+          d = new Date(date);
+        } else if (typeof date === 'number') {
+          d = new Date(date * 1000);
+        } else if (Array.isArray(date)) {
+          d = new Date(date[0], date[1], date[2]);
+        } else if (date.getDay) {
+          d = date;
+        } else {
+          d = null;
+        }
+        
+        if (d) {
+          var dd = d.getDate();
+          var mm = d.getMonth() + 1;
+          var yy = d.getFullYear() % 100;
+          
+          if (dd < 10) dd = '0' + dd;
+          if (mm < 10) mm = '0' + mm;
+          if (yy < 10) yy = '0' + yy;
+          
+          return `${dd}.${mm}.${yy}`;
+        }
+        
+        return '';
+      }
+
+      alert( formatDate('2011-10-02') ); // 02.10.11
+      alert( formatDate(1234567890) ); // 14.02.09
+      alert( formatDate([2014, 0, 1]) ); // 01.01.14
+      alert( formatDate(new Date(2014, 0, 1)) ); // 01.01.14
+    </script>
+  </body>
+</html>
