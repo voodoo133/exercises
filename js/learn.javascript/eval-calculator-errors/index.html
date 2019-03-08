@@ -1,0 +1,27 @@
+<!-- description: http://learn.javascript.ru/task/eval-calculator-errors -->
+<html>
+  <head>
+    <meta charset="utf-8"/>
+  </head>
+  <body>
+    <script>
+      var cont = true;
+    
+      while (cont) {
+        var exp = prompt('Мат. выражение: ', '2 + 2');
+      
+        try {
+          var res = eval(exp);
+          
+          if (isNaN(res)) throw new Error('Неправильное выражение. Введите заново.');
+          
+          alert(res);
+          cont = false;
+        } catch (e) {
+          alert('Неправильное выражение. Введите заново.');
+        }
+      }
+      
+    </script>
+  </body>
+</html>

@@ -1,0 +1,14 @@
+<!-- description: http://learn.javascript.ru/task/get-user-attribute -->
+<html>
+  <head>
+    <meta charset="utf-8"/>
+  </head>
+  <body>
+    <div id="widget" data-widget-name="menu">Выберите жанр</div>
+    <script>
+      var widget = document.getElementById('widget');
+      var widget_name = widget.dataset.widgetName;
+      alert(widget_name);
+    </script>
+  </body>
+</html>

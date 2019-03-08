@@ -1,0 +1,55 @@
+<!-- description: http://learn.javascript.ru/task/sort-table-performance -->
+<html>
+  <head>
+    <meta charset="utf-8"/>
+  </head>
+  <body>
+    <table id="tbl">
+      <tr>
+        <th>Имя</th>
+        <th>Фамилия</th>
+        <th>Отчество</th>
+        <th>Возраст</th>
+      </tr>
+			<tr>
+        <td>Вася</td>
+        <td>Петров</td>
+        <td>Александрович</td>
+        <td>10</td>
+      </tr>
+      <tr>
+        <td>Петя</td>
+        <td>Иванов</td>
+        <td>Петрович</td>
+        <td>15</td>
+      </tr>
+      <tr>
+        <td>Владимир</td>
+        <td>Ленин</td>
+        <td>Ильич</td>
+        <td>9</td>
+      </tr>
+    </table>
+    <script>
+      function sort (table) {
+        var rows = table.rows;
+        
+        var head_row = table.rows[0];
+        var data_rows = [].slice.call(rows, 1);
+        
+        data_rows.sort(function (a, b) {
+          return +a.cells[a.cells.length - 1].textContent - +b.cells[b.cells.length - 1].textContent;
+        });
+        
+        table.innerHTML = '';
+        
+        table.appendChild(head_row);
+        for (var i = 0; i < data_rows.length; i++)
+          table.appendChild(data_rows[i]);
+        
+      }
+      
+      sort(document.getElementById('tbl'));
+    </script>
+  </body>
+</html>

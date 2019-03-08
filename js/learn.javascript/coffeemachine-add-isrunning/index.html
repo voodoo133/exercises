@@ -1,0 +1,65 @@
+<!-- description: http://learn.javascript.ru/task/coffeemachine-add-isrunning -->
+<html>
+  <head>
+    <meta charset="utf-8"/>
+  </head>
+  <body>
+    <script>
+      function CoffeeMachine(power, capacity) {
+        var waterAmount = 0;
+
+        var WATER_HEAT_CAPACITY = 4200;
+        
+        var is_run = false;
+
+        var onReady = function() {
+          alert( 'Кофе готов!' );
+        }
+
+        function getTimeToBoil() {
+          return waterAmount * WATER_HEAT_CAPACITY * 80 / power;
+        }
+
+        this.setWaterAmount = function(amount) {
+          // ... проверки пропущены для краткости
+          waterAmount = amount;
+        };
+
+        this.getWaterAmount = function(amount) {
+          return waterAmount;
+        };
+
+        this.run = function() {
+          is_run = true;
+          setTimeout(
+            function () { 
+              is_run = false; 
+              onReady();
+            }, 
+            getTimeToBoil()
+          );
+        };
+        
+        this.setOnReady = function (f) {
+          onReady = f;
+        }
+        
+        this.isRunning = function () {
+          return is_run;
+        };
+      }
+      
+      var coffeeMachine = new CoffeeMachine(20000, 500);
+      coffeeMachine.setWaterAmount(100);
+
+      alert( 'До: ' + coffeeMachine.isRunning() ); // До: false
+
+      coffeeMachine.run();
+      alert( 'В процессе: ' + coffeeMachine.isRunning() ); // В процессе: true
+
+      coffeeMachine.setOnReady(function() {
+        alert( "После: " + coffeeMachine.isRunning() ); // После: false
+      });
+    </script>
+  </body>
+</html>

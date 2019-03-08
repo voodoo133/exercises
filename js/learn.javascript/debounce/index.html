@@ -1,0 +1,47 @@
+<!-- description: http://learn.javascript.ru/task/debounce -->
+<html>
+  <head>
+    <meta charset="utf-8"/>
+  </head>
+  <body>
+    <script>
+      function debounce (f, ms) {
+        var timer_id;
+
+        return function () {
+          var self = this;
+          var args = arguments;
+          
+          var r;
+          
+          if (timer_id) clearTimeout(timer_id);
+          
+          timer_id = setTimeout(function () {
+            r = f.apply(self, args);
+            timer_id = null;
+          }, ms);
+          
+          return r;
+        }
+      }
+    
+      function print (x) {
+        console.log(performance.now() - start + ': ' + x);
+      }
+
+      let f = debounce(print, 1000);
+
+      var start = performance.now();
+
+      f(1); // вызов отложен на 1000 мс
+      f(2); // предыдущий отложенный вызов игнорируется, текущий (2) откладывается на 1000 мс
+
+      // через 1 секунду будет выполнен вызов f(1)
+
+      setTimeout( function() { f(3) }, 1100); // через 1100 мс отложим вызов еще на 1000 мс
+      setTimeout( function() { f(4) }, 1200); // игнорируем вызов (3)
+
+      // через 2200 мс от начала выполнения будет выполнен вызов f(4)
+    </script>
+  </body>
+</html>

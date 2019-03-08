@@ -1,0 +1,87 @@
+<!-- description: http://learn.javascript.ru/task/calendar-table -->
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <style>
+      #cal table {
+        border-collapse: collapse;
+      }
+    
+      #cal th,
+      #cal td {
+        padding: 2px;
+        
+        text-align: center;
+        
+        border: 1px solid #000;
+      }
+      
+      #cal th {
+        background-color: #E6E6E6;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="cal"></div>
+    <script>
+      function createCalendar(id, year, month) 
+      {
+        var week_days = ['пн', 'вт', 'ср', 'чт', 'пт', 'сб', 'вс'];
+        
+        var table = document.createElement('table');
+        var week_days_row = document.createElement('tr');
+        
+        for (var i = 0; i < 7; i++) {
+          var th = document.createElement('th');
+          th.textContent = week_days[i];
+          week_days_row.appendChild(th);
+        }
+        
+        table.appendChild(week_days_row);
+        
+        var date = new Date(year, month - 1);
+        var start_month_week_day = (date.getDay() == 0) ? 7 : date.getDay();
+        
+        var last_month_date = new Date(year, month, 0);
+        var amount_days_in_month = last_month_date.getDate();
+        
+        var week_num = 1;
+        
+        while (1) {
+          var row = document.createElement('tr');
+          
+          for (var i = 1; i <=7; i++) {
+            var cell = document.createElement('td');
+            if (week_num == 1) {
+              if (i < start_month_week_day) {
+                cell.textContent = '';
+              } else {
+                cell.textContent = date.getDate();
+                date.setDate(date.getDate() + 1);
+              }
+            } else {
+              if (date.getMonth() > month - 1) {
+                cell.textContent = '';
+              } else {
+                cell.textContent = date.getDate();
+                date.setDate(date.getDate() + 1);
+              }
+            }
+            
+            row.appendChild(cell);
+          }
+          
+          week_num++;
+          table.appendChild(row);
+          
+          if (date.getMonth() > month - 1) break;
+          
+        }
+        
+        document.getElementById(id).appendChild(table);
+      }
+    
+      createCalendar("cal", 2012, 9)
+    </script>
+  </body>
+</html>

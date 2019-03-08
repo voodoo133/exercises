@@ -1,0 +1,18 @@
+<!-- description: http://learn.javascript.ru/task/clock-class-extended -->
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <script src="js/clock.js"></script>
+    <script src="js/extended-clock.js"></script>
+  </head>
+  <body>
+    <script>
+      var lowResolutionClock = new ExtendedClock({
+          template: 'h:m:s',
+          precision: 10000
+      });
+
+      lowResolutionClock.start();
+    </script>
+  </body>
+</html>

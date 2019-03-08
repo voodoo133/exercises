@@ -1,0 +1,29 @@
+<!-- description: http://learn.javascript.ru/task/menu-timer-animated -->
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <script src="js/menu.js"></script>
+    <script src="js/animating-menu.js"></script>
+  </head>
+  <body>
+    <script>
+      //var AnimatingMenu = Menu; // замените на ваш код для AnimatingMenu
+
+      // использование..
+
+      var menu = new AnimatingMenu();
+
+      menu.showState(); // закрыто
+
+      menu.open();
+      menu.showState(); // анимация
+
+      setTimeout(function() {
+        menu.showState(); // открыто
+
+        menu.close();
+        menu.showState(); // закрыто (закрытие без анимации)
+      }, 1000);
+    </script>
+  </body>
+</html>

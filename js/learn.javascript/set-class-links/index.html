@@ -1,0 +1,35 @@
+<!-- description: http://learn.javascript.ru/task/set-class-links -->
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <style>
+      .external {
+        background-color: yellow
+      }
+    </style>
+  </head>
+  <body>
+    <a name="list">список</a>
+    <ul>
+      <li><a href="http://google.com">http://google.com</a></li>
+      <li><a href="/tutorial">/tutorial.html</a></li>
+      <li><a href="local/path">local/path</a></li>
+      <li><a href="ftp://ftp.com/my.zip">ftp://ftp.com/my.zip</a></li>
+      <li><a href="http://nodejs.org">http://nodejs.org</a></li>
+      <li><a href="http://internal.com/test">http://internal.com/test</a></li>
+    </ul>
+    <script>
+      var anchors = document.getElementsByTagName('a');
+      
+      for (var i = 0; i < anchors.length; i++) {
+        if (anchors[i].href) {
+          var href = anchors[i].getAttribute('href');
+          
+          if (~href.indexOf('://') && !~href.indexOf('internal.com')) 
+            anchors[i].classList.add('external');
+            
+        }
+      }
+    </script>
+  </body>
+</html>

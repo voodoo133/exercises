@@ -1,0 +1,30 @@
+<!-- description: http://learn.javascript.ru/task/get-scroll-height-bottom -->
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <style>
+      .block {
+        width: 300px;
+        height: 200px;
+        
+        overflow: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="block">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque rhoncus nec est at sodales. Integer convallis ac est sed laoreet. Curabitur interdum eros vel felis ornare, ut consequat risus accumsan. Donec fringilla odio ac dolor consequat elementum. Quisque tincidunt magna ac tincidunt malesuada. Etiam enim risus, iaculis quis nulla ultricies, convallis tempor leo. Donec vulputate porttitor augue, nec pretium sem bibendum quis. Aenean sit amet placerat lorem. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aliquam consequat at est quis vestibulum. Ut ex sapien, posuere vitae sapien nec, convallis blandit libero. Nunc vehicula ex id lacus sodales, sed dignissim est facilisis. In id posuere augue, ac fringilla nisl. Nulla quis faucibus tellus. Morbi faucibus venenatis est, a viverra risus pretium in. Quisque laoreet nibh a pellentesque suscipit.
+
+Nunc dui justo, congue id ligula nec, aliquet sodales lacus. Fusce vel massa a tellus finibus sagittis vel vitae est. Maecenas non mauris at orci dapibus pharetra eget eleifend massa. Curabitur nisl quam, commodo sit amet pretium ac, dignissim non augue. Aliquam metus orci, euismod id volutpat vel, convallis non neque. Morbi consequat cursus sapien, at imperdiet metus iaculis sit amet. Curabitur laoreet tempor eleifend. Aliquam ex odio, pellentesque non ligula dignissim, venenatis aliquam ex. Quisque sed justo quis nisi maximus suscipit nec sit amet lectus.
+
+Pellentesque nec viverra arcu, ornare semper quam. Fusce feugiat nunc nec elit molestie ultrices. Aliquam ex erat, posuere nec erat sit amet, porta imperdiet elit. Morbi sagittis congue purus tincidunt sollicitudin. Ut dapibus ut ligula id congue. Donec venenatis mauris diam, vehicula suscipit urna varius et. Fusce et magna congue, sollicitudin leo ac, ultricies quam. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Vestibulum facilisis sem in libero aliquam tincidunt. Pellentesque efficitur malesuada ipsum a cursus. Nulla nunc odio, placerat quis lobortis in, blandit ut neque. Mauris ullamcorper mollis nibh, a tristique risus aliquam et. Fusce eu sem convallis, convallis nisi in, aliquam erat. Vestibulum fringilla leo ac porta molestie.
+    </div>
+    <script>
+      var block = document.querySelector('.block');
+      
+      var scroll_bottom = block.scrollHeight - block.scrollTop - block.clientHeight + 'px';
+      
+      console.log(scroll_bottom);
+    </script>
+  </body>
+</html>

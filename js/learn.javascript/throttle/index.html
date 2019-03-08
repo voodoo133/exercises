@@ -1,0 +1,49 @@
+<!-- description: http://learn.javascript.ru/task/throttle -->
+<html>
+  <head>
+    <meta charset="utf-8"/>
+  </head>
+  <body>
+    <script>
+      function throttle (f, ms) {
+        var is_throttled = false;
+        var self = null;
+        var args = null;
+        
+        function wrapper () {
+          if (is_throttled) {
+            self = this;
+            args = arguments;
+            return;
+          }
+          
+          f.apply(this, arguments);
+          is_throttled = true;
+          
+          setTimeout(function () {
+            is_throttled = false;
+            if (args) {
+              wrapper.apply(self, args);
+              self = args = null;
+            }
+          }, ms);
+        }
+        
+        return wrapper;
+      }
+    
+      var f = function(a) {
+        console.log(performance.now() - start + ': ' + a);
+      };
+
+      // затормозить функцию до одного раза в 1000 мс
+      var f1000 = throttle(f, 1000);
+
+      var start = performance.now();
+
+      f1000(1); // выведет 1
+      f1000(2); // (тормозим, не прошло 1000 мс)
+      f1000(3); // (тормозим, не прошло 1000 мс)
+    </script>
+  </body>
+</html>

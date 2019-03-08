@@ -1,0 +1,21 @@
+<!-- description: http://learn.javascript.ru/task/polyfill-textcontent-ie8 -->
+<html>
+  <head>
+    <meta charset="utf-8"/>
+  </head>
+  <body>
+    <script>
+      if (document.documentElement.textContent === undefined) {
+        Object.defineProperty(HTMLElement.prototype, 'textContent', {
+          get: function () {
+            return this.innerText;
+          },
+          
+          set: function (v) {
+            this.innerText = v;
+          } 
+        });
+      }
+    </script>
+  </body>
+</html>

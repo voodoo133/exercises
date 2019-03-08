@@ -1,0 +1,27 @@
+<!-- description: http://learn.javascript.ru/task/polyfill-closest -->
+<html>
+  <head>
+    <meta charset="utf-8"/>
+  </head>
+  <body class="main-page">
+    <div class="my-class-1"></div>
+    <script>
+      Element.prototype.closest = undefined;
+      
+      if (Element.prototype.closest === undefined) {
+        Element.prototype.closest = function (css) {
+          var el = this;
+          while (el) {
+            if (el.matches(css)) return el;
+            
+            el = el.parentElement;
+          }
+          
+          return null;
+        };
+      }
+      
+      console.log(document.body.firstElementChild.closest('.main-page'));
+    </script>
+  </body>
+</html>

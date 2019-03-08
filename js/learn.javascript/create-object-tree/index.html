@@ -1,0 +1,47 @@
+<!-- description: http://learn.javascript.ru/task/create-object-tree -->
+<html>
+  <head>
+    <meta charset="utf-8"/>
+  </head>
+  <body>
+    <div id="container"></div>
+    <script>
+      function createTree (container, data) {
+        var ul = document.createElement('ul');
+
+        for (var k in data) {
+          var li = document.createElement('li');
+          li.textContent = k;
+          ul.appendChild(li);
+          
+          if (Object.values(data[k]).length != 0) {
+            createTree(li, data[k]);
+          } 
+        }
+        
+        return container.append(ul);
+      }
+    
+      var data = {
+        "Рыбы": {
+          "Форель": {},
+          "Щука": {}
+        },
+
+        "Деревья": {
+          "Хвойные": {
+            "Лиственница": {},
+            "Ель": {}
+          },
+          "Цветковые": {
+            "Берёза": {},
+            "Тополь": {}
+          }
+        }
+      };
+      
+      var container = document.getElementById('container');
+      createTree(container, data); // создаёт
+    </script>
+  </body>
+</html>

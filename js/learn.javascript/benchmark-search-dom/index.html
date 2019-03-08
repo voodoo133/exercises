@@ -1,0 +1,37 @@
+<!-- description: http://learn.javascript.ru/task/benchmark-search-dom -->
+<html>
+  <head>
+    <meta charset="utf-8"/>
+  </head>
+  <body>
+    <script>
+      function bench (f, times) {
+        var start = performance.now();
+        
+        for (var i = 0; i < times; i++) f();
+        
+        return performance.now() - start;
+      }
+      
+      function runGet () {
+        var elems = document.getElementsByTagName('p');
+        var length = elems.length;
+        
+        for (var i = 0; i < length; i++) var elem = elems[i];
+      }
+      
+      function runQuery () {
+        var elems = document.querySelectorAll('p');
+        var length = elems.length;
+        
+        for (var i = 0; i < length; i++) var elem = elems[i];
+      }
+    
+      for (var i = 0; i < 200; i++) document.write('<p>' + i + '</p>');
+
+      console.log(bench(runGet, 10000));
+      console.log(bench(runQuery, 10000));
+      
+    </script>
+  </body>
+</html>

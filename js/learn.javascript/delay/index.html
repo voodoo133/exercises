@@ -1,0 +1,34 @@
+<!-- description: http://learn.javascript.ru/task/delay -->
+<html>
+  <head>
+    <meta charset="utf-8"/>
+  </head>
+  <body>
+    <script>
+      function delay (func, time) {
+        return function () {
+          var self = this;
+          var args = arguments;
+          
+          var r;
+          
+          setTimeout(function () {
+            r = func.apply(self, args);
+          }, time);
+          
+          return r;
+        }
+      }
+    
+      function f(x) {
+        alert( x );
+      }
+
+      var f1000 = delay(f, 1000);
+      var f1500 = delay(f, 1500);
+
+      f1000("тест"); // выведет "тест" через 1000 миллисекунд
+      f1500("тест2"); // выведет "тест2" через 1500 миллисекунд
+    </script>
+  </body>
+</html>

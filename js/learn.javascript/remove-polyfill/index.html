@@ -1,0 +1,26 @@
+<!-- description: http://learn.javascript.ru/task/remove-polyfill -->
+<html>
+  <head>
+    <meta charset="utf-8"/>
+  </head>
+  <body>
+    <div>Это</div>
+    <div>Все</div>
+    <div>Элементы DOM</div>
+
+    <script>
+      Element.prototype.remove = undefined;
+       
+      if (Element.prototype.remove === undefined) {
+        Element.prototype.remove = function () {
+          if (this.parentNode) 
+            this.parentNode.removeChild(this);
+        };
+      }
+      
+      var elem = document.body.children[0];
+
+      elem.remove(); // <-- вызов должен удалить элемент
+    </script>
+  </body>
+</html>

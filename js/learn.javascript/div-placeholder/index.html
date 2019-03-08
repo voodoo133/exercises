@@ -1,0 +1,39 @@
+<!-- description: http://learn.javascript.ru/task/div-placeholder -->
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <style>
+      #moving-div {
+        border: 5px groove green;
+        padding: 5px;
+        margin: 10px;
+        background-color: yellow;
+      }
+    </style>
+  </head>
+  <body>
+    Before Before Before
+
+    <div id="moving-div">
+    Text Text Text<br>
+    Text Text Text<br>
+    </div>
+
+    After After After
+    <script>
+      var div = document.getElementById('moving-div');
+      
+      var pseudo_div = document.createElement('div');
+      pseudo_div.style.width = div.offsetWidth + 'px';
+      pseudo_div.style.height = div.offsetHeight + 'px';
+      pseudo_div.style.marginTop = getComputedStyle(div).marginTop;
+      pseudo_div.style.marginBottom = getComputedStyle(div).marginBottom;
+      pseudo_div.style.backgroundColor = 'rgb(192, 192, 192)';
+      
+      document.body.insertBefore(pseudo_div, div);
+      
+      div.style.position = 'absolute';
+      div.style.right = div.style.top = 0;
+    </script>
+  </body>
+</html>

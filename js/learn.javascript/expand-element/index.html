@@ -1,0 +1,41 @@
+<!-- description: http://learn.javascript.ru/task/expand-element -->
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <style>
+      #elem {
+        width: 200px;
+        height: 150px;
+        background-color: red;
+        padding: 20px;
+        overflow: auto;
+      }
+
+      body {
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="elem">
+      текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст
+      текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст
+      текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст
+      текст текст
+    </div>
+    <script>
+      var elem = document.getElementById("elem");
+      
+      elem.style.width = document.body.offsetWidth - parseFloat(getComputedStyle(elem).paddingLeft) - parseFloat(getComputedStyle(elem).paddingRight) + 'px';
+      
+      /*
+      elem.style.width = '100%';
+      elem.style.boxSizing = 'border-box';
+      */
+      
+      /*
+      elem.style.width = 'auto';
+      */
+    </script>
+  </body>
+</html>

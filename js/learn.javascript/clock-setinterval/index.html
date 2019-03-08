@@ -1,0 +1,62 @@
+<!-- description: http://learn.javascript.ru/task/clock-setinterval -->
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <style>
+      .clock__hh { 
+        color: red;
+      }
+      
+      .clock__mm { 
+        color: green;
+      }
+      
+      .clock__ss { 
+        color: blue;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="clock">
+      <span class="clock__hh"></span>:
+      <span class="clock__mm"></span>:
+      <span class="clock__ss"></span>
+    </div>
+    <script>
+      function Clock () 
+      {
+        this._interval_id = null;
+      }
+      
+      Clock.prototype._render = function () {
+        var d = new Date();
+        
+        var hh = d.getHours();
+        if (hh < 10) hh = '0' + hh;
+        
+        var mm = d.getMinutes();
+        if (mm < 10) mm = '0' + mm;
+        
+        var ss = d.getSeconds();
+        if (ss < 10) ss = '0' + ss;
+        
+        document.querySelector('.clock__hh').innerHTML = hh;
+        document.querySelector('.clock__mm').innerHTML = mm;
+        document.querySelector('.clock__ss').innerHTML = ss;
+      };
+      
+      Clock.prototype.start = function () {
+        this._render();
+        
+        this._interval_id = setInterval(this._render.bind(this), 1000);
+      };
+      
+      Clock.prototype.stop = function () {
+        clearInterval(this._interval_id);
+      };
+      
+      var clock = new Clock();
+      clock.start();
+    </script>
+  </body>
+</html>
