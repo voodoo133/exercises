@@ -1,0 +1,68 @@
+<!-- description: http://learn.javascript.ru/task/move-ball-field -->
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <style>
+      #field {
+        position: relative;
+        
+        width: 200px;
+        height: 150px;
+        
+        border: 10px groove black;
+        background-color: #00FF00;
+  
+        overflow: hidden;
+        
+        cursor: pointer;
+      }
+
+      #ball {
+        position: absolute;
+        top: 0;
+        left: 0;
+        
+        transition: 0.5s linear;
+      }
+    </style>
+  </head>
+
+  <body style="height:2000px">
+    
+    Кликните на любое место поля, чтобы мяч перелетел туда.
+    <br> Мяч никогда не вылетит за границы поля.
+
+
+    <div id="field">
+      <img src="https://js.cx/clipart/ball.svg" id="ball" width="40" height="40"> . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+      . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    </div>
+    
+    <script>
+      var field = document.getElementById('field');
+      var ball = document.getElementById('ball');
+      
+      field.onclick = function (e) {
+
+        var field_coords = {
+          top: field.getBoundingClientRect().top + field.clientTop,
+          left: field.getBoundingClientRect().left + field.clientLeft
+        };
+
+        var new_top = e.clientY - field_coords.top - ball.height / 2;
+        var new_left = e.clientX - field_coords.left - ball.width / 2;
+        
+        if (new_top < 0) new_top = 0;
+        if (new_left < 0) new_left = 0;
+        
+        if (new_top + ball.height > field.clientHeight) new_top = field.clientHeight - ball.height;
+        if (new_left + ball.width > field.clientWidth) new_left = field.clientWidth - ball.width;
+        
+        ball.style.top = new_top + 'px';
+        ball.style.left = new_left + 'px';
+      };
+    </script>
+  </body>
+
+</html>

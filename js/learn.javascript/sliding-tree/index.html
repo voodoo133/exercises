@@ -1,0 +1,66 @@
+<!-- description: http://learn.javascript.ru/task/sliding-tree -->
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <style>
+      .tree__name:hover {
+        font-weight: 700;
+        
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <ul class="tree">
+      <li class="tree__item"><span class="tree__name">Животные</span>
+        <ul>
+          <li class="tree__item"><span class="tree__name">Млекопитающие</span>
+            <ul>
+              <li class="tree__item"><span class="tree__name">Коровы</span></li>
+              <li class="tree__item"><span class="tree__name">Ослы</span></li>
+              <li class="tree__item"><span class="tree__name">Собаки</span></li>
+              <li class="tree__item"><span class="tree__name">Тигры</span></li>
+            </ul>
+          </li>
+          <li class="tree__item"><span class="tree__name">Другие</span>
+            <ul>
+              <li class="tree__item"><span class="tree__name">Змеи</span></li>
+              <li class="tree__item"><span class="tree__name">Птицы</span></li>
+              <li class="tree__item"><span class="tree__name">Ящерицы</span></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li class="tree__item"><span class="tree__name">Рыбы</span>
+        <ul>
+          <li class="tree__item"><span class="tree__name">Аквариумные</span>
+            <ul>
+              <li class="tree__item"><span class="tree__name">Гуппи</span></li>
+              <li class="tree__item"><span class="tree__name">Скалярии</span></li>
+            </ul>
+          </li>
+          <li class="tree__item"><span class="tree__name">Морские</span>
+            <ul>
+              <li class="tree__item"><span class="tree__name">Морская форель</span></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+  </ul>
+    <script>
+      document.querySelector('.tree').onclick = function (e) {
+        if (!e.target.classList.contains('tree__name')) return;
+        
+        var tree_item = e.target.closest('.tree__item');
+        
+        if (tree_item) {
+          for (var i = 0; i < tree_item.children.length; i++) {
+            if (tree_item.children[i].classList.contains('tree__name')) continue;
+            
+            tree_item.children[i].hidden = !tree_item.children[i].hidden;
+          }
+        }
+      };
+    </script>
+  </body>
+</html>

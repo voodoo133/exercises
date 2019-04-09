@@ -1,0 +1,77 @@
+<!-- description: http://learn.javascript.ru/task/sort-table -->
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <style>
+      th {
+        cursor: pointer;
+      }
+
+      th:hover {
+        background: yellow;
+      }
+  </style>
+  </head>
+  <body>
+    <table id="grid">
+      <thead>
+        <tr>
+          <th data-type="number">Возраст</th>
+          <th data-type="string">Имя</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>5</td>
+          <td>Вася</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Петя</td>
+        </tr>
+        <tr>
+          <td>12</td>
+          <td>Женя</td>
+        </tr>
+        <tr>
+          <td>9</td>
+          <td>Маша</td>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>Илья</td>
+        </tr>
+      </tbody>
+    </table>
+    <script>
+      function sort (table, type, col_num) {
+        var rows = table.rows;
+        var head_row = [].slice.call(rows, 0, 1)[0];
+        rows = [].slice.call(rows, 1);
+   
+        [].sort.call(rows, function (a, b) {
+          switch (type) {
+            case 'number': 
+              return a.cells[col_num].textContent - b.cells[col_num].textContent;
+              break;
+              
+            case 'string':
+              return (a.cells[col_num].textContent > b.cells[col_num].textContent) ? 1 : -1;
+              break;              
+          }
+        });
+        
+        table.appendChild(head_row); 
+        
+        for (var i = 0; i < rows.length; i++)
+          table.appendChild(rows[i]); 
+      }
+
+      document.getElementById('grid').onclick = function (e) {
+        if (!e.target.dataset.type) return;
+   
+        sort(this, e.target.dataset.type, e.target.cellIndex);
+      };
+    </script>
+  </body>
+</html>

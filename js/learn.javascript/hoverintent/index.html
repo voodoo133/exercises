@@ -1,0 +1,143 @@
+<!-- description: http://learn.javascript.ru/task/hoverintent -->
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <style>
+      .hours {
+        color: red;
+      }
+
+      .minutes {
+        color: green;
+      }
+
+      .seconds {
+        color: blue;
+      }
+
+      .clock {
+        position: absolute;
+        left: 0;
+        top: 0;
+        
+        display: inline-block;
+        padding: 5px;
+        
+        border: 1px dashed black;
+        background: yellow;
+      }
+
+      .tooltip {
+        position: absolute;
+        top: 35px;
+        left: 32px;
+        
+        padding: 3px;
+        
+        background: #eee;
+        border: 1px brown solid;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="elem" class="clock">
+      <span class="hours">12</span> :
+      <span class="minutes">30</span> :
+      <span class="seconds">00</span>
+    </div>
+
+    <div id="tooltip" class="tooltip" hidden>Tooltip</div>
+
+    <script>
+      function HoverIntent(options) {
+        
+        var elem = options.elem;
+        
+        var mouse_coords = { 
+          prev: {
+            x: 0, 
+            y: 0, 
+            time: 0
+          }, 
+          curr: {
+            x: 0, 
+            y: 0, 
+            time: 0
+          }
+        }
+      
+        var interval_id = null;
+        
+        var is_hover = false;
+        
+        elem.onmouseenter = function (e) {
+          mouse_coords.prev.x = e.pageX;
+          mouse_coords.prev.y = e.pageY;
+          mouse_coords.prev.time = performance.now();
+          
+          is_hover = true;
+          
+          document.body.onmousemove = function (e) {  
+            mouse_coords.curr.x = e.pageX;
+            mouse_coords.curr.y = e.pageY;
+            mouse_coords.curr.time = performance.now();
+          };
+          
+          interval_id = setInterval(function () {
+            var distance = Math.pow(mouse_coords.prev.x - mouse_coords.curr.x, 2) + Math.pow(mouse_coords.prev.y - mouse_coords.curr.y, 2);
+            var time = mouse_coords.curr.time - mouse_coords.prev.time;
+            var speed = distance / time;
+  
+            if (distance / time < 1.5) {
+              options.over.call(elem, e);
+              
+              clearInterval(interval_id);
+            } else {
+              if (is_hover) {
+                options.over.call(elem, e);
+              
+                clearInterval(interval_id);
+              }
+              
+              mouse_coords.curr.x = mouse_coords.prev.x;
+              mouse_coords.curr.y = mouse_coords.prev.y;
+              mouse_coords.curr.time = mouse_coords.prev.time;
+            }
+              
+          }, 100);
+        };  
+        
+        elem.onmouseleave = function (e) {
+          is_hover = false;
+          
+          document.body.onmousemove = null;
+          
+          clearInterval(interval_id);
+          
+          options.out.call(elem, e);
+        }
+        
+        this.destroy = function() {
+          elem.onmouseover = null;
+          elem.onmouseout = null;
+          document.body.onmousemove = null;
+        }
+      }
+      
+      var tooltip = document.getElementById('tooltip');
+    
+      // for the demo
+      setTimeout(function() {
+        new HoverIntent({
+          elem: elem,
+          over: function() {
+            tooltip.hidden = false;
+          },
+          out: function() {
+            tooltip.hidden = true;
+          }
+        });
+      }, 2000);
+    </script>
+  </body>
+</html>

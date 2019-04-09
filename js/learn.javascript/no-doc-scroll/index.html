@@ -1,0 +1,77 @@
+<!-- description: http://learn.javascript.ru/task/no-doc-scroll -->
+<html>
+  <head>
+    <meta charset="utf-8"/>
+  </head>
+  <body style="height: 1000px; position: relative">
+    <header>
+      <h2>Начало документа</h2>
+    </header>
+
+    <textarea cols="80" rows="10">
+      прокрути меня
+      прокрути меня
+      прокрути меня
+      прокрути меня
+      прокрути меня
+      прокрути меня
+      прокрути меня
+      прокрути меня
+      прокрути меня
+      прокрути меня
+      прокрути меня
+      прокрути меня
+      прокрути меня
+      прокрути меня
+      прокрути меня
+      прокрути меня
+      прокрути меня
+    </textarea>
+
+
+    <footer style="position: absolute; bottom: 0">
+      Конец документа.
+    </footer>
+    <script>
+      function onWheel(e) {
+        e = e || window.event;
+        
+        var target = e.target;
+
+        // wheelDelta не дает возможность узнать количество пикселей
+        var delta = e.deltaY || e.detail || e.wheelDelta;
+
+        if (delta > 0) {
+          if (target.scrollTop + target.clientHeight >= target.scrollHeight)
+            e.preventDefault();
+        } else {
+          if (target.scrollTop == 0)
+            e.preventDefault();
+        }
+      }
+    
+      function setOnWheelHander (elem) {
+        if (elem.addEventListener) {
+          if ('onwheel' in document) {
+            // IE9+, FF17+, Ch31+
+            elem.addEventListener("wheel", onWheel);
+          } else if ('onmousewheel' in document) {
+            // устаревший вариант события
+            elem.addEventListener("mousewheel", onWheel);
+          } else {
+            // Firefox < 17
+            elem.addEventListener("MozMousePixelScroll", onWheel);
+          }
+        } else { // IE8-
+          elem.attachEvent("onmousewheel", onWheel);
+        }
+      }
+
+      var textareas = document.getElementsByTagName('textarea');
+      
+      for (var i = 0; i < textareas.length; i++) 
+        setOnWheelHander(textareas[i]);
+  
+    </script>
+  </body>
+</html>

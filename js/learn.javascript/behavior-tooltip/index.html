@@ -1,0 +1,85 @@
+<!-- description: http://learn.javascript.ru/task/behavior-tooltip -->
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <style>
+     
+      body {
+        height: 2000px;
+        /* подсказка должна работать независимо от прокрутки */
+      }
+    
+      .tooltip {
+        position: fixed;
+        padding: 10px 20px;
+        
+        font: italic 14px/1.3 sans-serif;
+        text-align: center;
+        color: #333;
+  
+        border: 1px solid #b3c9ce;
+        border-radius: 4px;
+        background: #fff;
+        box-shadow: 3px 3px 3px rgba(0, 0, 0, .3);
+      }
+    
+    </style>
+  </head>
+  <body>
+    
+    <p>ЛяЛяЛя ЛяЛяЛя ЛяЛяЛя ЛяЛяЛя ЛяЛяЛя ЛяЛяЛя ЛяЛяЛя ЛяЛяЛя ЛяЛяЛя</p>
+    <p>ЛяЛяЛя ЛяЛяЛя ЛяЛяЛя ЛяЛяЛя ЛяЛяЛя ЛяЛяЛя ЛяЛяЛя ЛяЛяЛя ЛяЛяЛя</p>
+
+    <button data-tooltip="подсказка длиннее, чем элемент">Короткая кнопка</button>
+    <button data-tooltip="HTML<br>подсказка">Ещё кнопка</button>
+
+    <p>Прокрутите страницу, чтобы ссылки были вверху и проверьте, правильно ли показываются подсказки.</p>
+
+
+    <script>
+      function createNote (text) {
+        var note = document.createElement('div');
+        note.className = 'tooltip';
+        note.innerHTML = text;
+        
+        return note;
+      }
+    
+      document.onmouseover = function (e) {
+        var target = e.target;
+        var tooltip = target.dataset.tooltip;
+        
+        if (!tooltip) return;
+        
+        var note = createNote(tooltip);
+        
+        document.body.appendChild(note);
+        
+        var target_coords = target.getBoundingClientRect();
+        
+        var top_offset = 5;
+        
+        var top = target_coords.top - note.offsetHeight - top_offset;
+        if (top < 0) top = target_coords.bottom + top_offset;
+
+        var left = target_coords.left + (target.offsetWidth - note.offsetWidth) / 2 ;
+        if (left < 0) left = 0;
+          
+        note.style.top = top + 'px';
+        note.style.left = left + 'px';
+      };
+      
+      document.onmouseout = function (e) {
+        var target = e.target;
+        var tooltip = target.dataset.tooltip;
+        
+        if (tooltip) {
+          var tooltips = document.getElementsByClassName('tooltip');
+          
+          for (var i = 0; i < tooltips.length; i++)
+            document.body.removeChild(tooltips[i]);
+        }
+      };
+    </script>
+  </body>
+</html>

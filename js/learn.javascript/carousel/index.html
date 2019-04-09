@@ -1,0 +1,150 @@
+<!-- description: http://learn.javascript.ru/task/carousel -->
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <style>
+      .carousel__arrow {
+        padding: 0;
+        background: #ddd;
+        border-radius: 15px;
+        border: 1px solid gray;
+        font-size: 24px;
+        line-height: 24px;
+        color: #444;
+        display: block;
+      }
+
+      .carousel__arrow:focus {
+        outline: none;
+      }
+
+      .carousel__arrow:hover {
+        background: #ccc;
+        cursor: pointer;
+      }
+
+      ul {
+        height: 130px;
+        width: 9999px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        /* убрать между inline-block li лишние пробелы, которые есть в HTML */
+        /* http://davidwalsh.name/remove-whitespace-inline-block */
+
+        font-size: 0;
+      }
+
+      ul img {
+        width: 130px;
+        height: 130px;
+        /* по умолчанию inline, но в ряде браузеров это даст лишнее пространство вокруг элементов */
+
+        display: block;
+      }
+
+      ul li {
+        /* если в HTML между элементами <li>..</li> есть пробелы, то они будут видны на странице,
+        чтобы их избежать, нужно либо писать <li>..</li><li>..</li> вплотную, либо не ставить закрывающие </li> */
+
+        display: inline-block;
+      }
+      
+      .carousel {
+        position: relative;
+        
+        display: flex;
+        align-items: center;
+        width: 440px;
+        padding: 10px 10px;
+        
+        border: 1px solid #CCC;
+        border-radius: 15px;
+        background: #eee;
+      }
+      
+      .carousel__pictures {
+        width: 390px;
+        
+        overflow: hidden;
+      }
+      
+      .carousel__pictures-list {
+        position: relative;
+        left: 0;
+        
+        transition: 0.2s linear; 
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ваша верстка виджета, ваши стили -->
+
+    <div class="carousel">
+      <button class="carousel__arrow carousel__arrow--prev">⇦</button>
+      <div class="carousel__pictures">
+        <ul class="carousel__pictures-list">
+          <li><img src="https://js.cx/carousel/1.png" width="130" height="130"></li>
+          <li><img src="https://js.cx/carousel/2.png" width="130" height="130"></li>
+          <li><img src="https://js.cx/carousel/3.png" width="130" height="130"></li>
+          <li><img src="https://js.cx/carousel/4.png" width="130" height="130"></li>
+          <li><img src="https://js.cx/carousel/5.png" width="130" height="130"></li>
+          <li><img src="https://js.cx/carousel/6.png" width="130" height="130"></li>
+          <li><img src="https://js.cx/carousel/7.png" width="130" height="130"></li>
+          <li><img src="https://js.cx/carousel/8.png" width="130" height="130"></li>
+          <li><img src="https://js.cx/carousel/9.png" width="130" height="130"></li>
+          <li><img src="https://js.cx/carousel/10.png" width="130" height="130"></li>
+        </ul>
+      </div>
+      
+      <button class="carousel__arrow carousel__arrow--next">⇨</button>
+    </div>
+
+    <script>
+      function arrowHander () {  
+        var arrow = this;
+        var pictures_list = document.querySelector('.carousel__pictures-list');
+        var img_width = document.querySelector('.carousel__pictures-list img').offsetWidth;
+        
+        if (arrow.classList.contains('carousel__arrow--next')) {
+          if (showed_images[showed_images.length - 1] == amount_images) return;
+          
+          var offset = Math.min(amount_images - showed_images[showed_images.length - 1], 3);
+          
+          var last_img_num = showed_images[showed_images.length - 1]; 
+          for (var i = 1; i <= offset; i++) {
+            showed_images.shift()
+            showed_images.push(last_img_num + i);
+          }
+   
+          var left_offset = parseInt(pictures_list.style.left) || 0;
+          left_offset = left_offset - img_width * offset;
+          pictures_list.style.left = left_offset + 'px';
+        }
+        
+        if (arrow.classList.contains('carousel__arrow--prev')) {
+          if (showed_images[0] == 1) return;
+          
+          var offset = Math.min(showed_images[0] - 1, 3);
+          
+          var first_img_num = showed_images[0]; 
+          for (var i = 1; i <= offset; i++) {
+            showed_images.pop()
+            showed_images.unshift(first_img_num - i);
+          }
+          
+          var left_offset = parseInt(pictures_list.style.left) || 0;
+          left_offset = left_offset + img_width * offset;
+          pictures_list.style.left = left_offset + 'px';
+        }
+      }
+    
+      var arrows = document.querySelectorAll('.carousel__arrow');
+      var showed_images = [1, 2, 3];
+      var amount_images = document.querySelectorAll('.carousel__pictures-list img').length;
+      
+      for (var i = 0; i < arrows.length; i++)
+        arrows[i].onclick = arrowHander;
+    </script>
+  </body>
+</html>

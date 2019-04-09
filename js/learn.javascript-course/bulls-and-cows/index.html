@@ -1,0 +1,102 @@
+<html>
+  <head>
+    <meta charset="utf-8"/>
+  </head>
+  <body>
+    <script>
+      bullsAndCows();
+
+      /**
+       * Функция для запуска игры
+       *
+       * @return undefined
+       */
+      function bullsAndCows () {
+      	const secretNum = generateGameSecretNum();
+
+        let attemptResLog = '';
+
+        while (true) {
+          let userNum = prompt('Введите число', '');
+
+          // Пользователь устал
+          if (userNum === null) {
+            alert('Могли бы и ещё одну попыточку сделать, ведь результат был так близок.'); 
+            break;
+          }
+
+          // Пользователь выиграл
+          if (userNum === secretNum) { 
+            alert('Вы выиграли!'); 
+            break;
+          }
+
+          // Пользователь ввел нечисловую ересь
+          if (isNaN(userNum)) {
+            alert('Введено не число.'); 
+            continue;
+          }
+
+          // Пользователь ввел короткую/длинную числовую ересь
+          if (userNum.length != secretNum.length) {
+            alert('Неправильная длина числа.'); 
+            continue;
+          }
+
+          let userNums = userNum.split('');
+          let resultAttempt = {
+            cows: 0,
+            bulls: 0
+          };
+
+          // Анализ пользовательского числа
+          userNums.forEach((num, i) => {
+            let numPos = secretNum.indexOf(num);
+
+            if (numPos !== -1) {
+              if (numPos === i) resultAttempt.bulls++;
+              else resultAttempt.cows++;
+            }
+          });
+          
+          attemptResLog += 'Ваше число: ' + userNum + ' | ';
+          attemptResLog += 'Коров: ' + resultAttempt.cows + ' | ';
+          attemptResLog += 'Быков: ' + resultAttempt.bulls + ' \n';
+
+          alert(attemptResLog);
+        } 
+      }
+
+      /**
+       * Генерация случайного числа для игры
+       *
+       * @return string
+       */
+      function generateGameSecretNum () {
+      	
+        let secretNum = '';
+        
+        while (secretNum.length < 4) {
+        	let digit = generateRandNum(0, 9).toString();
+          
+          if (secretNum.indexOf(digit) === -1)
+          	secretNum += digit;
+        }
+
+       	return secretNum;
+      }
+
+      /**
+       * Генерация случайного числа в диапазоне
+       * 
+       * @param {number} min Нижняя граница диапазона
+       * @param {number} max Верхняя граница диапазон
+       *
+       * @return number
+       */
+      function generateRandNum (min, max) {
+        return Math.round(min + Math.random() * (max - min));  
+      }
+    </script>
+  </body>
+</html>

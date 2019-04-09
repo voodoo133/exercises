@@ -1,0 +1,121 @@
+<!-- description: http://learn.javascript.ru/task/updown-button -->
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <style>
+      body,
+      html {
+        height: 100%;
+        width: 100%;
+        padding: 0;
+        margin: 0;
+      }
+
+      #matrix {
+        width: 400px;
+        margin: auto;
+        overflow: auto;
+        text-align: justify;
+      }
+      
+      .nav-arrow {
+        position: fixed;
+        top: 5px;
+        left: 5px;
+        
+        display: none;
+        
+        border: none;
+        background: transparent;
+        
+        cursor: pointer;
+      }
+      
+      .nav-arrow::before {
+        content: '';
+        
+        color: green;
+      }
+      
+      .nav-arrow--up,
+      .nav-arrow--down {
+        display: block;
+      }
+      
+      .nav-arrow--up::before {
+        content: '▲';
+      }
+      
+      .nav-arrow--down::before {
+        content: '▼';
+      }
+    </style>
+  </head>
+  <body>
+    <div id="matrix">
+      <script>
+        for (var i = 0; i < 2000; i++) document.writeln(i)
+      </script>
+    </div>
+    <button class="nav-arrow">
+      
+    </button>
+    <script>
+      function showNavArrow (direction) {
+        var navArrow = document.querySelector('.nav-arrow');
+        
+        switch (direction) {
+          case 'up':
+            if (!navArrow.classList.contains('nav-arrow--up')) {
+              navArrow.classList.add('nav-arrow--up');
+              navArrow.classList.remove('nav-arrow--down');    
+            }
+                
+            break;              
+              
+          case 'down':
+            if (!navArrow.classList.contains('nav-arrow--down')) {
+              navArrow.classList.add('nav-arrow--down');  
+              navArrow.classList.remove('nav-arrow--up');      
+            }              
+            
+            break;
+            
+          case 'hide':
+            if (navArrow.classList.contains('nav-arrow--up')) 
+              navArrow.classList.remove('nav-arrow--up');
+              
+            break;
+        }
+      }
+    
+      var screenHeight = document.documentElement.clientHeight;
+      
+      window.onscroll = function () {
+        var currScrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        
+        if (currScrollTop > screenHeight)
+          showNavArrow('up');
+        else 
+          showNavArrow('hide');
+      };
+      
+      var navArrow = document.querySelector('.nav-arrow');
+      var lastScrollTop;
+      
+      navArrow.onclick = function (e) {
+        if (this.classList.contains('nav-arrow--up')) {
+          lastScrollTop = window.pageYOffset || document.documentElement.scrollTop;
+          window.scrollTo(0, 0);
+          
+          showNavArrow('down');
+        } else if (this.classList.contains('nav-arrow--down')) {
+          window.scrollTo(0, lastScrollTop);
+          
+          showNavArrow('up');
+        }
+          
+      };
+    </script>
+  </body>
+</html>
