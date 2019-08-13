@@ -1,0 +1,106 @@
+<!-- description: http://learn.javascript.ru/task/form-modal -->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <style type="text/css">
+      .modal {
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 99999; 
+
+        width: 100%;
+        height: 100%;
+        box-sizing: border-box;
+        padding: 20px;
+      }
+
+      .modal__content {
+        display: -webkit-flex;
+        display: -moz-flex;
+        display: -ms-flex;
+        display: -o-flex;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+
+        background-color: rgba(0, 0, 255, 0.3);
+      }
+
+      .modal__form {
+        position: relative;
+      
+        width: 300px;
+        height: 120px;
+        padding-left: 65px;
+
+        background-color: #fff;
+        border: 1px solid #000;
+      }
+
+      .modal__form::before {
+        content: "";
+
+        position: absolute;
+        top: 5px;
+        left: 5px;
+
+        width: 50px;
+        height: 50px;
+
+        background: url('https://js.cx/clipart/key.png');
+      }
+
+      .modal__form-header {
+        margin: 5px 0;
+        padding: 0;
+
+        font-weight: 400;
+        font-size: 16px;
+      }
+
+      .modal__form-item {
+        margin-bottom: 5px;
+      }
+
+      .modal__form-label-text {
+        display: inline-block;
+        width: 50px;
+      }
+    </style>
+  </head>
+
+  <body style="height:2000px">
+
+    <p>Текст Текст Текст</p>
+
+    <button onclick="alert('Эта кнопка не должна работать')">Эта кнопка не работает</button>
+
+    <p>Текст Текст Текст</p>
+
+    <div class="modal">
+      <div class="modal__content">
+        <form class="modal__form" action="">
+          <h2 class="modal__form-header">Добро пожаловать!</h2>
+          <div class="modal__form-item">
+            <label class="modal__form-label">
+              <span class="modal__form-label-text">Логин</span>
+              <input class="modal__form-input" type="text">
+            </label> 
+          </div>
+          <div class="modal__form-item">
+            <label class="modal__form-label">
+              <span class="modal__form-label-text">Пароль</span>
+              <input class="modal__form-input" type="text">
+            </label> 
+          </div>
+          <div class="modal__form-item">
+            <button class="modal__form-button modal__form-button--submit" type="submit">Войти</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,97 @@
+﻿<!-- description: http://htmlbook.ru/practical/forma-registracii -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title></title>
+    <style>
+      .reg {
+        width: 400px;
+        
+        font-family: arial;
+        color: #fff;
+        
+        background-color: #0692cf;
+        border: 3px solid #0075b0;
+      }
+      
+      .reg__header {
+        margin: 0;
+        padding: 24px 22px 18px;
+        
+        font-size: 21px;
+        font-weight: 400;
+        
+        border-bottom: 1px solid #fff;
+      }
+      
+      .reg__form {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        padding: 32px 60px 20px 20px;
+      }
+      
+      .reg__form-item {
+        width: 100%;
+      }
+      
+      .reg__form-item--short {
+        width: 45%;
+        margin-top: 24px;
+      }
+      
+      .reg__form-item--short:nth-child(3) {
+        margin-right: 0;
+      }
+      
+      .reg__form-item--buttons {
+        margin-top: 35px;
+      }
+      
+      .reg__form-label-text {
+        display: block;
+        margin-bottom: 2px;
+      }
+      
+      .reg__form-field {
+        width: 100%;
+      }
+      
+      .reg__form-button {
+        padding: 6px 10px;
+        
+        border: none;
+        background-color: #ffdf80;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="reg">
+      <h2 class="reg__header">Регистрация</h2>
+      <form class="reg__form" action="">
+        <div class="reg__form-item">
+          <label class="reg__form-label">
+            <span class="reg__form-label-text">E-mail</span>
+            <input class="reg__form-field reg__form-field--email" name="email" type="email" />
+          </label>
+        </div>
+        <div class="reg__form-item reg__form-item--short">
+          <label class="reg__form-label">
+            <span class="reg__form-label-text">Пароль</span>
+            <input class="reg__form-field reg__form-field--password" name="password" type="password" />
+          </label>
+        </div>
+        <div class="reg__form-item reg__form-item--short">
+          <label class="reg__form-label">
+            <span class="reg__form-label-text">Ещё раз</span>
+            <input class="reg__form-field reg__form-field--password-repeat" name="password-repeat" type="password" />
+          </label>
+        </div>
+        <div class="reg__form-item reg__form-item--buttons">
+          <button class="reg__form-button reg__form-button--submit"type="submit">Отправить</button>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>

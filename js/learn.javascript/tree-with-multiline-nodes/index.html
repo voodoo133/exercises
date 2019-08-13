@@ -1,0 +1,77 @@
+<!-- description: http://learn.javascript.ru/task/tree-with-multiline-nodes -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <style type="text/css">
+      ul {
+        margin: 0;
+        padding: 0 0 0 20px;
+
+        list-style-type: none;
+      }
+
+      li > ul {
+        padding-left: 30px;
+      }
+
+      .open,
+      .closed,
+      .leaf {
+        position: relative;
+      }
+
+      .open::before,
+      .closed::before,
+      .leaf::before {
+        content: "";
+
+        position: absolute;
+        top: 0;
+        left: -16px;
+
+        width: 16px;
+        height: 16px;
+  
+        cursor: pointer;
+      }
+
+      .open::before {
+        background: url('https://js.cx/sprite-tree/minus.gif');
+      }
+
+      .closed::before {
+        background: url('https://js.cx/sprite-tree/plus.gif');
+      }
+
+      .leaf::before {
+        background: url('https://js.cx/sprite-tree/article.gif');
+      }
+    </style>
+  </head>
+  <body>
+    <ul>
+      <li class="open">
+        <div class="icon"></div>
+        <div class="text">Раздел 1
+          <br>(занимает две строки)</div>
+        <ul>
+          <li class="closed">
+            <div class="icon"></div>
+            <div class="text">Раздел 1.1</div>
+          </li>
+          <li class="leaf">
+            <div class="icon"></div>
+            <div class="text">Страница 1.2
+              <br>(занимает две строки)</div>
+          </li>
+        </ul>
+      </li>
+      <li class="closed">
+        <div class="icon"></div>
+        <div class="text">Раздел 2
+          <br>(занимает две строки)</div>
+      </li>
+    </ul>
+  </body>
+</html>

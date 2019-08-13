@@ -1,0 +1,50 @@
+<!-- description: http://learn.javascript.ru/task/input-nice-placeholder -->
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <style>
+      body {
+        font: 14px/14px sans-serif;
+      }
+
+      input {
+        font: 14px/14px sans-serif;
+        width: 12em;
+        padding: 0;
+        margin: 0;
+      }
+
+      #placeholder {
+        font: 14px/14px sans-serif;
+        position: absolute;
+        margin: -1.2em 0 0 0.2em;
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div>Добро пожаловать</div>
+    <input type="password" id="input">
+
+    <div id="placeholder">Скажи пароль, друг</div>
+
+    <div>.. и заходи</div>
+    
+    <script>
+      let input = document.getElementById('input');
+      let placeholder = document.getElementById('placeholder');
+      
+      input.onfocus = () => {
+        if (placeholder.parentNode) 
+          placeholder.remove();
+      }
+      
+      placeholder.onclick = () => { 
+        if (placeholder.parentNode) {
+          placeholder.remove();
+          input.focus();
+        }
+      }
+    </script>
+  </body>
+</html>

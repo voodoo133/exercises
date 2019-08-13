@@ -1,0 +1,19 @@
+<!-- description: http://learn.javascript.ru/task/add-select-option -->
+<html>
+  <head>
+    <meta charset="utf-8"/>
+  </head>
+  <body>
+    <select>
+      <option value="Rock">Рок</option>
+      <option value="Blues" selected>Блюз</option>
+    </select>
+    <script>
+      let select = document.querySelector('select');
+      
+      console.log(select.options[select.selectedIndex]);
+      
+      select.append(new Option('Классика', 'Classic', true, true));
+    </script>
+  </body>
+</html>

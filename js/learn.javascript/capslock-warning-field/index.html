@@ -1,0 +1,53 @@
+<!-- description: http://learn.javascript.ru/task/capslock-warning-field -->
+<html>
+  <head>
+    <meta charset="utf-8"/>
+  </head>
+  <body>
+    Введите текст(например, пароль) с нажатым CapsLock:
+    <input type="text" id="text" />
+
+    <div style="display:none;color:red" id="capsIndicator">Внимание: нажат CapsLock!</div>
+    
+    <script type="text/javascript">
+      let capsLockOn = null;
+      
+      let text = document.getElementById('text');
+      let capsIndicator = document.getElementById('capsIndicator');
+      
+      document.onkeypress = (e) => {
+        let symbol = String.fromCharCode(e.keyCode);
+
+        if ((symbol.toUpperCase() === symbol && !e.shiftKey) || (e.shiftKey && symbol.toLowerCase() === symbol)) {
+          capsLockOn = true;
+        } else {
+          capsLockOn = false;
+        }
+      };
+      
+      document.onkeydown = (e) => {
+        if (e.keyCode === 20) {
+          if (capsLockOn !== null) {
+            capsLockOn = !capsLockOn;
+          }
+        }
+      };
+      
+      text.onfocus = () => {
+        if (capsLockOn)
+          capsIndicator.style.display = 'block';
+      };
+      
+      text.onblur = () => {
+        capsIndicator.style.display = 'none';
+      };
+      
+      text.onkeyup = () => {
+        if (capsLockOn)
+          capsIndicator.style.display = 'block';
+        else 
+          capsIndicator.style.display = 'none';
+      };
+    </script>  
+  </body>
+</html>

@@ -1,0 +1,117 @@
+<!-- description: http://learn.javascript.ru/task/form-validation -->
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <style>
+      td select,
+      td input {
+        width: 150px;
+      }
+
+      label {
+        display: block;
+      }
+      
+      .form-field-error {
+        border: 1px solid red;
+      }
+      
+      .form-error {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <form>
+      <table>
+        <tr>
+          <td>От кого</td>
+          <td>
+            <input name="from" type="text">
+          </td>
+        </tr>
+        <tr>
+          <td>Ваш пароль</td>
+          <td>
+            <input name="password" type="password">
+          </td>
+        </tr>
+        <tr>
+          <td>Повторите пароль</td>
+          <td>
+            <input name="password2" type="password">
+          </td>
+        </tr>
+        <tr>
+          <td>Куда</td>
+          <td>
+            <select name="to">
+              <option></option>
+              <option value="1">Отдел снабжения</option>
+              <option value="2">Отдел разработки</option>
+              <option value="3">Директору</option>
+            </select>
+          </td>
+        </tr>
+      </table>
+
+      Сообщение:
+      <label>
+        <textarea name="message" style="display:block;width:400px;height:100px"></textarea>
+      </label>
+
+      <input type="button" onclick="validate(this.form)" value="Проверить">
+    </form>
+
+    <script>
+      function validate(form) {
+        let hasError = 0;
+        
+        for (let formElem of form.elements) {
+          
+          if (formElem.type === 'button') continue;
+
+          removeErrorNotification(formElem);
+          
+          if (!formElem.value) { 
+            formElem.classList.add('form-field-error');
+            showError(formElem, 'Не заполнено поле');
+            
+            hasError = 1;
+          }
+        }
+        
+        if (form.elements.password.value !== form.elements.password2.value) {
+          removeErrorNotification(form.elements.password);
+          removeErrorNotification(form.elements.password2);
+          
+          form.elements.password.classList.add('form-field-error');
+          showError(form.elements.password, 'Не совпадают пароли');
+          
+          hasError = 1;
+        }
+        
+        return !hasError;
+      }
+      
+      function showError (elem, errorText) {
+        let error = document.createElement('span');
+        error.classList = 'form-error';
+        error.textContent = errorText;
+        
+        elem.parentElement.append(error);
+      }
+      
+      function removeError (elem) {
+        let error = elem.parentElement.querySelector('.form-error');
+        
+        if (error) error.remove();
+      }
+      
+      function removeErrorNotification (elem) {
+        elem.classList.remove('form-field-error');
+        removeError(elem);
+      }
+    </script>
+  </body>
+</html>

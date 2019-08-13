@@ -1,0 +1,150 @@
+<!-- description: http://learn.javascript.ru/task/slider-events -->
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <style>
+      .slider {
+        width: 310px;
+        height: 15px;
+        margin: 10px 0;
+        
+        border-radius: 5px;
+        background: #E0E0E0;
+        background: -moz-linear-gradient(left top, #E0E0E0, #EEEEEE) repeat scroll 0 0 transparent;
+        background: -webkit-gradient(linear, left top, right bottom, from(#E0E0E0), to(#EEEEEE));
+        background: linear-gradient(left top, #E0E0E0, #EEEEEE);
+      }
+
+      .thumb {
+        width: 10px;
+        height: 25px;
+        border-radius: 3px;
+        position: relative;
+        left: 0px;
+        top: -5px;
+        background: blue;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="slider" class="slider"></div>
+  
+    Slide:<span id="slide"></span> Change: <span id="change"></span>
+    <button onclick="slider.setValue(50)">slider.setValue(50)</button>
+    
+    <script>    
+      class Slider {
+        constructor (options) {
+          this._slider = options.elem;
+          this._max = options.max;
+          
+          this._thumb = this._makeThumb();   
+          
+          this._pixelsPerValue = (this._slider.offsetWidth - this._thumb.offsetWidth) / this._max;
+          
+          this._setHandlers();
+        }
+        
+        setValue (v) {
+          if (v < 0 || v > this._max) {
+            alert('Неверное значение для слайдера');
+            
+            return;
+          }
+          
+          this._thumb.style.left = v * this._pixelsPerValue + 'px';
+        }
+        
+        _makeThumb () {
+          let thumb = document.createElement('div');
+          thumb.classList = 'thumb';
+          
+          this._slider.append(thumb);
+          
+          return thumb;
+        }
+        
+        _setHandlers () {
+          this._slider_coords = this._getCoords(this._slider);
+          
+          let self = this;
+          
+          this._thumb.onmousedown = function (e) {
+            var thumb_coords = self._getCoords(self._thumb);
+            
+            var shiftX = e.pageX - thumb_coords.left;
+
+            moveAt(e);
+            
+            function moveAt(e) {
+              var left = e.pageX - shiftX - self._slider_coords.left;
+              
+              if (left < 0) left = 0;
+              if (left + self._thumb.offsetWidth > self._slider.offsetWidth) left = self._slider.offsetWidth - self._thumb.offsetWidth;
+              
+              self._thumb.style.left = left + 'px';
+              
+              self._makeEvent('slide', left);
+            }
+            
+            document.onmousemove = function(e) {
+              moveAt(e);
+            };
+            
+            document.onmouseup = function(e) {
+              document.onmousemove = null;
+              self._thumb.onmouseup = null;
+              
+              var thumb_coords = self._getCoords(self._thumb);
+              var shiftX = e.pageX - thumb_coords.left;
+              var left = e.pageX - shiftX - self._slider_coords.left;
+              
+              self._makeEvent('change', left);
+            };
+          };
+          
+          this._thumb.ondragstart = function() {
+            return false;
+          };
+        }
+        
+        _getCoords (elem) {
+          let box = elem.getBoundingClientRect();
+
+          return {
+            top: box.top + pageYOffset,
+            left: box.left + pageXOffset
+          };
+        }
+        
+        _makeEvent (eventName, thumbLeft) {  
+          let sliderValue = Math.round(thumbLeft / this._pixelsPerValue);
+          
+          let e = new CustomEvent(eventName, {
+            bubbles: true,
+            cancelable: true,
+            detail: sliderValue
+          });
+          
+          this._slider.dispatchEvent(e);
+        }
+      };
+
+      var slider = new Slider({
+        elem: document.getElementById('slider'),
+        max: 100 // слайдер на самой правой позиции соответствует 100
+      });
+      
+      var sliderElem = document.getElementById('slider');
+
+      sliderElem.addEventListener('slide', function(event) {
+        document.getElementById('slide').innerHTML = event.detail;
+      });
+
+      sliderElem.addEventListener('change', function(event) {
+        document.getElementById('change').innerHTML = event.detail;
+      });
+    </script>
+  </body>
+</html>

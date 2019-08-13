@@ -1,0 +1,58 @@
+﻿<!-- description: http://htmlbook.ru/practical/blok-s-tenyu -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title></title>
+    <style>
+      .block__header {
+        position: relative;
+        top: 1px;
+
+        display: inline-block;
+        margin: 0;
+        padding: 6px 12px;
+
+        background-color: #cae39d;
+        border: 1px solid #a3d669;
+        border-bottom: none;
+        border-radius: 6px 6px 0 0;
+      }
+
+      .block__header::after {
+        content: "";
+
+        position: absolute;
+        z-index: -2;
+        top: 0;
+        left: 0;
+
+        width: 100%;
+        height: calc(100% - 4px);
+
+        background-color: transparent;
+        border-radius: 6px 6px 0 0;
+        box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.2);
+      }
+
+      .block__content {
+        position: relative;
+        z-index: -1;
+        height: 120px;
+        padding: 12px 12px;
+
+        background-color: #cae39d;
+        border: 1px solid #a3d669;
+        border-radius: 0 0 6px 6px;
+
+        box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="block">
+      <h2 class="block__header">Заголовок</h2>
+      <div class="block__content">Содержание блока</div>
+    </div>
+  </body>
+</html>

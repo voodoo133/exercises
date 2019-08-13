@@ -97,7 +97,29 @@
 
 
     <script>
-      // ... ваш код ...
+      LoadVisibleImages();
+      
+      document.onscroll = LoadVisibleImages;
+      
+      function LoadVisibleImages () {
+        let imgs = document.querySelectorAll('img[realsrc]');
+        
+        let viewBottomCoord = document.body.clientHeight + window.pageYOffset;
+        
+        for (let img of imgs) {
+          let imgTop = img.getBoundingClientRect().top + window.pageYOffset;
+          if (imgTop < viewBottomCoord) {
+            loadImg(img); 
+          }
+        }
+      }
+      
+      function loadImg (img) {
+        let src = img.getAttribute('realsrc');
+        img.removeAttribute('realsrc');
+        
+        img.src = src;
+      }
     </script>
   </body>
 </html>

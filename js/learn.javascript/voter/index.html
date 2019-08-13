@@ -1,0 +1,56 @@
+<!-- description: http://learn.javascript.ru/task/voter -->
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <style>
+      .voter {
+        font-family: 'DejaVu Sans Mono', 'Lucida Console', 'Menlo', 'Monaco', monospace;
+        font-size: 18px;
+      }
+
+      .voter__up,
+      .voter__down {
+        cursor: pointer;
+        color: blue;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="voter" class="voter">
+      <span class="voter__down">—</span>
+      <span class="voter__vote">0</span>
+      <span class="voter__up">+</span>
+    </div>
+
+    <script>
+      function Voter(options) {
+        let voter = options.elem;
+        
+        let voteDownButton = voter.querySelector('.voter__down');
+        let voteUpButton = voter.querySelector('.voter__up');
+        let vote = voter.querySelector('.voter__vote');
+        
+        this.setVote = (v) => {
+          vote.textContent = +v;
+        };
+         
+        voteDownButton.onclick = () => {
+          vote.textContent = +vote.textContent - 1;
+        };
+        
+        voteUpButton.onclick = () => {
+          vote.textContent = +vote.textContent + 1;
+        };
+        
+        voter.onmousedown = () => false;
+      }
+
+      var voter = new Voter({
+        elem: document.getElementById('voter')
+      });
+
+      voter.setVote(1);
+    </script>
+  </body>
+</html>

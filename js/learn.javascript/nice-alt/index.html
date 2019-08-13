@@ -1,0 +1,49 @@
+<!-- description: http://learn.javascript.ru/task/nice-alt -->
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <style>
+      .img-replace {
+        float: left;
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Google -->
+
+    <div class="img-replace" style="width:114px;height:40px;font-size:32px;letter-spacing:3px" data-service="google">
+      <span style="color:#1A53F7">G</span><span style="color:#E42131">o</span><span style="color:#FEB819">o</span><span style="color:#164AF2">g</span><span style="color:#00a315">l</span><span style="color:#E42131">e</span>
+    </div>
+
+    <!-- Яндекс -->
+    <div class="img-replace" style="width:101px;height:40px;font-size:32px" data-service="yandex">
+      <span style="color:#F00">Я</span>ндекс
+    </div>
+
+    <!-- Bing -->
+    <div class="img-replace" style="width:100;height:40px;font-size:32px;color:#006dd4;font-weight:bold;letter-spacing: 3px; font-family:sans-serif" data-service="bing">bing</div>
+    
+    <script>
+      let imgs = {
+        google: 'https://js.cx/search/google.png',
+        yandex: 'https://js.cx/search/yandex.png',
+        bing: 'https://js.cx/search/bing.png'
+      };
+      
+      let replace_imgs = document.querySelectorAll('.img-replace');
+      
+      for (let replace_img of replace_imgs) {
+        let img = document.createElement('img');
+        img.src = imgs[replace_img.dataset.service];
+        
+        img.onload = () => {
+          img.alt = replace_img.dataset.service;
+          
+          replace_img.innerHTML = '';
+          replace_img.append(img);
+        };
+      }
+    </script>
+  </body>
+</html>

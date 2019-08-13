@@ -1,0 +1,85 @@
+<!-- description: http://learn.javascript.ru/task/voter-add-step -->
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <style>
+      .voter {
+        font-family: 'DejaVu Sans Mono', 'Lucida Console', 'Menlo', 'Monaco', monospace;
+        font-size: 18px;
+      }
+
+      .voter__up,
+      .voter__down {
+        cursor: pointer;
+        color: blue;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="voter" class="voter">
+      <span class="voter__down">—</span>
+      <span class="voter__vote">0</span>
+      <span class="voter__up">+</span>
+    </div>
+
+    <script>
+      class Voter {
+        constructor (options) {
+          this._voter = options.elem;
+        
+          this._voteDownButton = this._voter.querySelector('.voter__down');
+          this._voteUpButton = this._voter.querySelector('.voter__up');
+          this._vote = this._voter.querySelector('.voter__vote');
+          
+          this._setHandlers();
+        }
+        
+        setVote (v) {
+          this._vote.textContent = +v;
+        }
+        
+        _setHandlers () {
+          let self = this;
+          
+          this._voteDownButton.onclick = () => {
+            self._vote.textContent = +self._vote.textContent - 1;
+          };
+          
+          this._voteUpButton.onclick = () => {
+            self._vote.textContent = +self._vote.textContent + 1;
+          };
+          
+          this._voter.onmousedown = () => false;
+        }
+      }
+      
+      class StepVoter extends Voter {
+        constructor (options) {
+          super(options);
+          
+          this._step = options.step || 1;
+        }
+        
+        _setHandlers () {
+          super._setHandlers();
+  
+          let self = this;
+          
+          this._voteDownButton.onclick = () => {
+            self._vote.textContent = +self._vote.textContent - self._step;
+          };
+          
+          this._voteUpButton.onclick = () => {
+            self._vote.textContent = +self._vote.textContent + self._step;
+          };
+        }
+      }
+    
+      var voter = new StepVoter({
+        elem: document.getElementById('voter'),
+        step: 2 // увеличивать/уменьшать сразу на 2 пункта
+      });
+    </script>
+  </body>
+</html>

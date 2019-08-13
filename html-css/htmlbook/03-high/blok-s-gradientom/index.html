@@ -1,0 +1,67 @@
+﻿<!-- description: http://htmlbook.ru/practical/blok-s-gradientom -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title></title>
+    <style type="text/css">
+      body {
+        background: repeating-linear-gradient(45deg, #f79a2f, #f79a2f 1px, #fff 1px, #fff 20px) fixed;
+      }
+
+      .block {
+        padding: 10px;
+
+        background-color: rgba(98, 204, 179, 0.6);
+        border: 2px solid #004a39;
+        border-radius: 5px;
+      }
+
+      .block__content {
+        background-color: #ebeadd;
+        border: 1px solid #666666;
+        border-radius: 5px;
+      }
+
+      .block__header {
+        position: relative;
+
+        margin: 0;
+        padding: 10px;
+        
+        font-size: 20px;
+        font-weight: 400;
+
+        background-color: #ffd000;
+      }
+
+      .block__header::before {
+        content: "";
+        
+        position: absolute;
+        top: 36px;
+        left: 15px;
+
+        width: 15px;
+        height: 15px;
+
+        background-color: #ffd000;
+
+        transform: rotate(-45deg);
+      }
+
+      .block__text {
+        margin: 0 0 0 0;
+        padding: 20px 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="block">
+      <div class="block__content">
+        <h2 class="block__header">Заголовок</h2>
+        <p class="block__text">Содержимое</p>
+      </div>
+    </div>
+  </body>
+</html>

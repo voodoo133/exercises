@@ -1,0 +1,33 @@
+<!-- description: http://learn.javascript.ru/task/clock -->
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <script src="js/clock.js"></script>
+    <style>
+      .clock__hh {
+        color: green
+      }
+
+      .clock__mm {
+        color: blue
+      }
+
+      .clock__ss {
+        color: red
+      }
+    </style>
+  </head>
+  <body>
+    <div class="clock" id="clock"></div>
+    <input type="button" onclick="clock.start()" value="Старт">
+    <input type="button" onclick="clock.stop()" value="Стоп">
+
+    <input type="button" onclick="alert('Часы должны останавливаться во время alert,\nи продолжать корректно работать после нажатия на ОК')" value="alert для проверки корректного возобновления">
+
+    <script>
+      var clock = new Clock({
+        elem: document.getElementById('clock')
+      });
+    </script>
+  </body>
+</html>

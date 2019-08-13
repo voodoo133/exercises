@@ -1,0 +1,89 @@
+<!-- description: http://learn.javascript.ru/task/emulate-placeholder -->
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <style>
+      /* стиль для input с плейсхолдером */
+
+      .placeholder {
+        color: blue;
+        font-family: serif;
+      }
+      /* стиль для подсказки над элементом (вместо плейсхолдера при фокусировке) */
+
+      .placeholder-tooltip {
+        color: blue;
+        font-family: serif;
+        position: absolute;
+      }
+    </style>
+  </head>
+  <body>
+    <p>Красивый placeholder:</p>
+
+    
+    <input type="email" data-placeholder="E-mail">
+
+
+    <script>
+      var input = document.querySelector('[data-placeholder]');
+
+      showPlaceholder(input);
+      
+      input.onfocus = function () {
+        makeTootip(this.dataset.placeholder, this);
+        
+        if (this.classList.contains('placeholder')) {
+          this.classList.remove('placeholder');
+          this.value = '';
+        }
+          
+      };
+      
+      input.onblur = function () {
+        removeTooltip();
+        
+        if (this.value.length === 0) {
+          showPlaceholder(this);
+        }
+      };
+
+      // Показать placeholder внутри input
+      // Также можно сделать это при помощи вёрстки, отдельным элементом
+      function showPlaceholder(input) {
+        input.classList.add('placeholder');
+        input.value = input.dataset.placeholder;
+      }
+      
+      function makeTootip (text, target) {
+        let targetCoords = getCoords(target);
+        
+        let tooltip = document.createElement('span');
+        tooltip.className = 'placeholder-tooltip';
+        tooltip.textContent = text;
+        tooltip.style.fontSize = getComputedStyle(target).fontSize
+        
+        document.body.append(tooltip);
+        
+        tooltip.style.top = targetCoords.top - tooltip.offsetHeight;
+        tooltip.style.left = targetCoords.left;
+      }
+      
+      function removeTooltip () {
+        let tooltips = document.querySelectorAll('.placeholder-tooltip');
+        
+        for (let i = 0; i < tooltips.length; i++)
+          tooltips[i].remove();
+      }
+      
+      function getCoords (elem) {
+        var coords = elem.getBoundingClientRect();
+        
+        return {
+          top: coords.top + window.pageYOffset,
+          left: coords.left + window.pageXOffset
+        };
+      }
+    </script>
+  </body>
+</html>

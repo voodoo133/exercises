@@ -1,0 +1,82 @@
+<!-- description: http://learn.javascript.ru/task/hotkeys -->
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <style>
+      #view,
+      #area {
+        height: 150px;
+        width: 400px;
+        font-family: sans-serif;
+        font-size: 14px;
+      }
+
+      #view {
+        /* padding + border = 3px */
+
+        padding: 2px;
+        border: 1px solid black;
+      }
+
+      #area {
+        display: none;
+        /* replace padding with border (still 3px not to shift the contents) */
+
+        border: 3px groove blue;
+        padding: 0px;
+      }
+
+      #area:focus {
+        outline: none;
+        /* remove focus border in Safari */
+      }
+    </style>
+  </head>
+  <body>
+    <ul>
+      <li>Ctrl-E to start editing.</li>
+      <li>While editing: Ctrl-S to save, Esc to cancel.</li>
+    </ul>
+    <textarea id="area"></textarea>
+    <div id="view">Text</div>
+    
+    <script type="text/javascript">
+      var keyCodes = {
+        'edit': 69,
+        'save': 83,
+        'cancel': 27
+      };
+      
+      var textarea = document.getElementById('area');
+      var textview = document.getElementById('view');
+    
+      document.onkeydown = function (e) {  
+        if (e.keyCode === keyCodes.edit && e.ctrlKey) {
+          e.preventDefault();
+          
+          if (textarea.offsetHeight) return;
+          
+          textview.style.display = 'none';
+          textarea.value = textview.innerHTML;
+          textarea.style.display = 'block';
+          textarea.focus();
+        }
+        
+        if (e.keyCode === keyCodes.save && e.ctrlKey) {
+          e.preventDefault();
+          
+          textarea.style.display = 'none';
+          textview.innerHTML = textarea.value;
+          textview.style.display = 'block';
+        }
+        
+        if (e.keyCode === keyCodes.cancel) {
+          e.preventDefault();
+          
+          textarea.style.display = 'none';
+          textview.style.display = 'block';
+        }
+      };
+    </script>
+  </body>
+</html>

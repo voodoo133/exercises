@@ -1,0 +1,26 @@
+<!-- description: http://learn.javascript.ru/task/scripts-callback -->
+<html>
+  <head>
+    <meta charset="utf-8"/>
+  </head>
+  <body>
+    <script>
+      function addScripts (sources, callback) {
+        let state = 0;
+        
+        for (let src of sources) {
+          let script = document.createElement('script');
+          script.src = src;
+
+          script.onload = script.onerror = () => {
+            if (sources.length === ++state) callback();
+          };
+          
+          document.body.append(script);
+        }
+      }
+      
+      addScripts(["a.js", "b.js", "c.js"], function() { a() });
+    </script>
+  </body>
+</html>

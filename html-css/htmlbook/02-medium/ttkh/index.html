@@ -1,0 +1,139 @@
+﻿<!-- description: http://htmlbook.ru/practical/ttkh -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title></title>
+    <style>
+      .weapon {
+        padding: 0 15px;
+      }
+    
+      .weapon__list {
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+        padding: 0;
+        
+        list-style-type: none;
+      }
+      
+      .weapon__item {
+        width: 380px;
+        margin-bottom: 10px;
+        
+        overflow: hidden;
+      }
+      
+      .weapon__item:last-of-type {
+        margin-bottom: 0;
+      }
+      
+      
+      .weapon__panel {
+        position: relative;
+        left: 3px;
+        
+        display: flex;
+        justify-content: space-between;
+        width: 354px;
+        padding: 10px;
+        
+        background-color: #888f94;
+        
+        transform: skewX(-25deg);
+      }
+      
+      .weapon__feature {
+        display: inline-block;
+        margin-left: 10px;
+        
+        color: #fff;
+        
+        transform: skewX(25deg);
+      }
+      
+      .weapon__feature-rating {
+        display: flex;
+        margin: 0;
+        padding: 2px 0 0;
+        
+        list-style: none;
+      }
+      
+      .weapon__rating-item {
+        width: 15px;
+        height: 15px;
+        margin-right: 10px;
+      }
+      
+      .weapon__rating-item:last-of-type {
+        margin-bottom: 0;
+      }
+      
+      .weapon__rating-item--low {
+        background-color: #50d9b0;
+      }
+      
+      .weapon__rating-item--medium {
+        background-color: #d9d250;
+      }
+      
+      .weapon__rating-item--high {
+        background-color: #d98b50;
+      }
+      
+      .weapon__feature-rating--1 .weapon__rating-item:nth-of-type(n + 2) { background-color: #d4d4d4; }
+      .weapon__feature-rating--2 .weapon__rating-item:nth-of-type(n + 3) { background-color: #d4d4d4; }
+      .weapon__feature-rating--3 .weapon__rating-item:nth-of-type(n + 4) { background-color: #d4d4d4; }
+      .weapon__feature-rating--4 .weapon__rating-item:nth-of-type(n + 5) { background-color: #d4d4d4; }
+      .weapon__feature-rating--5 .weapon__rating-item:nth-of-type(n + 6) { background-color: #d4d4d4; }
+    </style>
+  </head>
+  <body>
+    <div class="weapon">
+      <p class="weapon__header">Тактико-технические характеристики вооружения ЫЩ-35У (образца 2035 года)</p>
+      <ul class="weapon__list">
+        <li class="weapon__item">
+          <div class="weapon__panel">
+            <span class="weapon__feature">Уровень зарядки</span>
+            <ul class="weapon__feature-rating weapon__feature-rating--6">
+              <li class="weapon__rating-item weapon__rating-item--low"></li>
+              <li class="weapon__rating-item weapon__rating-item--low"></li>
+              <li class="weapon__rating-item weapon__rating-item--medium"></li>
+              <li class="weapon__rating-item weapon__rating-item--medium"></li>
+              <li class="weapon__rating-item weapon__rating-item--high"></li>
+              <li class="weapon__rating-item weapon__rating-item--high"></li>
+            </ul>
+          </div>
+        </li>
+        <li class="weapon__item">
+          <div class="weapon__panel">
+            <span class="weapon__feature">Убойная сила</span>
+            <ul class="weapon__feature-rating weapon__feature-rating--3">
+              <li class="weapon__rating-item weapon__rating-item--low"></li>
+              <li class="weapon__rating-item weapon__rating-item--low"></li>
+              <li class="weapon__rating-item weapon__rating-item--medium"></li>
+              <li class="weapon__rating-item weapon__rating-item--medium"></li>
+              <li class="weapon__rating-item weapon__rating-item--high"></li>
+              <li class="weapon__rating-item weapon__rating-item--high"></li>
+            </ul>
+          </div>
+        </li>
+        <li class="weapon__item">
+          <div class="weapon__panel">
+            <span class="weapon__feature">Перезарядка</span>
+            <ul class="weapon__feature-rating weapon__feature-rating--1">
+              <li class="weapon__rating-item weapon__rating-item--low"></li>
+              <li class="weapon__rating-item weapon__rating-item--low"></li>
+              <li class="weapon__rating-item weapon__rating-item--medium"></li>
+              <li class="weapon__rating-item weapon__rating-item--medium"></li>
+              <li class="weapon__rating-item weapon__rating-item--high"></li>
+              <li class="weapon__rating-item weapon__rating-item--high"></li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

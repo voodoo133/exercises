@@ -1,0 +1,41 @@
+<!-- description: http://learn.javascript.ru/task/load-img-callback -->
+<html>
+  <head>
+    <meta charset="utf-8"/>
+  </head>
+  <body>
+    <script>
+      function callback () {
+        alert('All done');
+      }
+    
+      function preloadImages (images, callback) {
+        let state = 0;
+        
+        for (let src of images) {
+          let img = document.createElement('img');
+
+          img.onload = img.onerror = () => {
+            state++;
+          };
+          
+          img.src = src;
+        }
+        
+        let interval = setInterval(() => {
+          if (state !== images.length) return;
+          
+          clearInterval(interval);
+          
+          callback();
+        }, 100);
+      }
+    
+      preloadImages([
+        "https://js.cx/search/google.png", 
+        "https://js.cx/search/yandex.png", 
+        "https://js.cx/search/bing.png"
+      ], callback);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,63 @@
+<!-- description: http://learn.javascript.ru/task/phones-list -->
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta charset="utf-8">
+  </head>
+
+  <body>
+
+    <button onclick="loadPhones()" id="button">Загрузить phones.json!</button>
+    
+    <ul id="phones-list"></ul>
+
+    <script>
+      function loadPhones() {
+
+        var xhr = new XMLHttpRequest();
+
+        xhr.open('GET', 'phones.json', true);
+
+        xhr.onreadystatechange = function() {
+          if (xhr.readyState != 4) return;
+
+          button.innerHTML = 'Готово!';
+
+          if (xhr.status != 200) {
+            alert(xhr.status + ': ' + xhr.statusText);
+          } else {
+            // вывести результат
+            //alert(xhr.responseText);
+            
+            try {
+              let data = JSON.parse(xhr.responseText);
+              renderList(data);
+            } catch (e) {
+              alert(e.message);
+            }
+          }
+
+        }
+
+        xhr.send();
+
+        button.innerHTML = 'Загружаю...';
+        button.disabled = true;
+      }
+      
+      function renderList (data) {
+        let list = document.getElementById('phones-list');
+        
+        list.innerHTML = `
+          ${
+            data.map(phone => `
+              <li>${phone.name}</li>
+            `).join('')
+          }
+        `;
+      }
+    </script>
+
+  </body>
+
+</html>

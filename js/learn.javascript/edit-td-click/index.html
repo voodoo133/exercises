@@ -1,0 +1,214 @@
+<!-- description: http://learn.javascript.ru/task/edit-td-click -->
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <style>
+      th {
+        text-align: center;
+        font-weight: bold;
+      }
+
+      td {
+        width: 150px;
+        white-space: nowrap;
+        text-align: center;
+        vertical-align: middle;
+        padding: 10px;
+      }
+      
+      td textarea {
+        display: flex;
+        width: 100%;
+        height: 100%;
+        
+        overflow: hidden;
+        
+        resize: none;
+      }
+      
+      td.editing {
+        position: relative;
+        
+        padding: 0;
+      }
+      
+      .edit-button {
+        position: absolute;
+        
+        text-transform: uppercase;
+      }
+
+      .nw { background-color: #999; }
+
+      .n {
+        background-color: #03f;
+        color: #fff;
+      }
+
+      .ne { background-color: #ff6; }
+
+      .w { background-color: #ff0; }
+
+      .c {
+        background-color: #60c;
+        color: #fff;
+      }
+
+      .e {
+        background-color: #09f;
+        color: #fff;
+      }
+
+      .sw {
+        background-color: #963;
+        color: #fff;
+      }
+
+      .s {
+        background-color: #f60;
+        color: #fff;
+      }
+
+      .se {
+        background-color: #0c3;
+        color: #fff;
+      }
+    </style>
+  </head>
+  <body>
+    <p>Кликните на ячейке для начала редактирования. Когда закончите -- нажмите OK или CANCEL.</p>
+
+    <table id="bagua-table">
+      <tr>
+        <th colspan="3"><em>Bagua</em> Chart: Direction, Element, Color, Meaning</th>
+      </tr>
+      <tr>
+        <td class="nw"><strong>Northwest</strong>
+          <br>Metal
+          <br>Silver
+          <br>Elders
+        </td>
+        <td class="n"><strong>North</strong>
+          <br>Water
+          <br>Blue
+          <br>Change
+        </td>
+        <td class="ne"><strong>Northeast</strong>
+          <br>Earth
+          <br>Yellow
+          <br>Direction
+        </td>
+      </tr>
+      <tr>
+        <td class="w"><strong>West</strong>
+          <br>Metal
+          <br>Gold
+          <br>Youth
+        </td>
+        <td class="c"><strong>Center</strong>
+          <br>All
+          <br>Purple
+          <br>Harmony
+        </td>
+        <td class="e"><strong>East</strong>
+          <br>Wood
+          <br>Blue
+          <br>Future
+        </td>
+      </tr>
+      <tr>
+        <td class="sw"><strong>Southwest</strong>
+          <br>Earth
+          <br>Brown
+          <br>Tranquility
+        </td>
+        <td class="s"><strong>South</strong>
+          <br>Fire
+          <br>Orange
+          <br>Fame
+        </td>
+        <td class="se"><strong>Southeast</strong>
+          <br>Wood
+          <br>Green
+          <br>Romance
+        </td>
+      </tr>
+    </table>
+    <script>
+      let table = document.getElementById('bagua-table');
+      let tbody = table.tBodies[0];
+      
+      table.editing = false;
+      
+      for (let row of tbody.rows) {
+        for (let cell of row.cells) {
+          cell.cellContent = null;
+          
+          cell.onclick = function (e) {
+            let t = e.target;
+            let table = cell.closest('table');
+            
+            if (t.tagName === 'BUTTON') {
+              switch (t.dataset.action) {
+                case 'ok': 
+                  let textarea = this.querySelector('textarea');
+                  
+                  this.innerHTML = textarea.value;
+                  
+                  break;
+                case 'cancel': 
+                  this.innerHTML = this.cellContent;
+                  
+                  break;
+              }
+              
+              this.classList.toggle('editing');
+              this.cellContent = null;
+              table.editing = false;
+            } else if (!table.editing) {
+              startEditing(this);
+              
+              table.editing = true;
+            }
+          }
+        }
+      }
+      
+      function startEditing (cell) {
+        cell.cellContent = cell.innerHTML;
+              
+        let textarea = document.createElement('textarea');
+        textarea.value = cell.cellContent;
+        textarea.style.width = cell.offsetWidth + 'px';
+        textarea.style.height = cell.offsetHeight + 'px';
+        
+        cell.classList.toggle('editing');
+        
+        cell.innerHTML = '';
+        cell.append(textarea);
+        
+        makeEditButtons(cell);
+      }
+      
+      function makeEditButtons (cell) {
+        let okButton = document.createElement('button');
+        okButton.classList = 'edit-button edit-button--ok';
+        okButton.textContent = 'ok';
+        okButton.setAttribute('data-action', 'ok');
+        
+        let cancelButton = document.createElement('button');
+        cancelButton.classList = 'edit-button edit-button--cancel';
+        cancelButton.textContent = 'cancel';
+        cancelButton.setAttribute('data-action', 'cancel');
+        
+        cell.append(okButton);
+        cell.append(cancelButton);
+        
+        okButton.style.bottom = cancelButton.style.bottom = '-' + Math.max(okButton.offsetHeight, cancelButton.offsetHeight) + 'px';
+        
+        okButton.style.left = '0px';
+        cancelButton.style.left = okButton.offsetWidth + 'px';
+      }
+    </script>
+  </body>
+</html>

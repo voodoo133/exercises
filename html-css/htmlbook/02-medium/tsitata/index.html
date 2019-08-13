@@ -1,0 +1,45 @@
+﻿<!-- description: http://htmlbook.ru/practical/tsitata -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title></title>
+    <style>
+      .quote {
+        position: relative;
+
+        width: 300px;
+        margin: 0 auto;
+      }
+
+      .quote::before, 
+      .quote::after {
+        position: absolute;
+
+        font-size: 55px;
+        color: #8a0000;
+      }
+
+      .quote::before {
+        content: "«";
+
+        top: -22px;
+        left: -62px;
+      }
+
+      .quote::after {
+        content: "»";
+        
+        right: -46px;
+        bottom: -12px;
+      }
+    </style>
+  </head>
+  <body>
+    <blockquote class="quote">
+      <p class="quote__text">Не ошибается лишь тот, кто ничего не делает! 
+        Не бойтесь ошибаться &nbsp;— бойтесь повторять ошибки.</p>
+      <p class="quote__author">Теодор Рузвельт</p>
+    </blockquote>
+  </body>
+</html>

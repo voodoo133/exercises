@@ -1,0 +1,155 @@
+<!-- description: http://learn.javascript.ru/task/calculate-capitalization -->
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <style>
+      td select,
+      td input {
+        width: 150px;
+      }
+
+      #diagram td {
+        vertical-align: bottom;
+        text-align: center;
+        padding: 10px;
+      }
+
+      #diagram div {
+        margin: auto;
+      }
+    </style>
+  </head>
+  <body>
+    Калькулятор процентов, из расчёта 12% годовых.
+    <form name="calculator">
+      <table>
+        <tr>
+          <td>Сумма</td>
+          <td>
+            <input name="money" type="text" value="10000">
+          </td>
+        </tr>
+        <tr>
+          <td>Срок в месяцах</td>
+          <td>
+            <select name="months">
+              <option value="3">3 (минимум)</option>
+              <option value="6">6 (полгода)</option>
+              <option value="12" selected>12 (год)</option>
+              <option value="18">18 (1.5 года)</option>
+              <option value="24">24 (2 года)</option>
+              <option value="30">30 (2.5 года)</option>
+              <option value="36">36 (3 года)</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td>С капитализацией</td>
+          <td>
+            <input name="capitalization" type="checkbox">
+          </td>
+        </tr>
+      </table>
+
+
+    </form>
+
+
+    <table id="diagram">
+      <tr>
+        <th>Было:</th>
+        <th>Станет:</th>
+      </tr>
+      <tr>
+        <th id="money-before"></th>
+        <th id="money-after"></th>
+      </tr>
+      <tr>
+        <td>
+          <div style="background: red;width:40px;height:100px" id="height-before"></div>
+        </td>
+        <td>
+          <div style="background: green;width:40px;height:0" id="height-after"></div>
+        </td>
+      </tr>
+    </table>
+
+    <script>
+      let money = document.querySelector('input[name="money"]');
+      let months = document.querySelector('select[name="months"]');
+      let capitalization = document.querySelector('input[name="capitalization"]');
+      
+      money.onkeypress = function (e) {
+        if (!/\d/.test(getChar(e))) { 
+          e.preventDefault();
+          
+          return false;
+        }
+      };
+      
+      money.oninput = function () {
+        makeCapitalize();
+      };
+      
+      months.onchange = function () {
+        makeCapitalize();
+      };
+      
+      capitalization.onchange = function () {
+        makeCapitalize();
+      };
+    
+      makeCapitalize();
+    
+      // вспомогательная функция для получения символа из события keypress
+      // (вдруг понадобится))
+      function getChar(event) {
+        if (event.which == null) {
+          if (event.keyCode < 32) return null;
+          return String.fromCharCode(event.keyCode) // IE
+        }
+
+        if (event.which != 0 && event.charCode != 0) {
+          if (event.which < 32) return null;
+          return String.fromCharCode(event.which) // остальные
+        }
+
+        return null; // специальная клавиша
+      }
+
+      function makeCapitalize() {
+        let moneyBefore = document.getElementById('money-before');
+        let moneyAfter = document.getElementById('money-after');
+
+        let newMoney = capitalize(+money.value, +months.value, capitalization.checked);
+
+        moneyBefore.textContent = money.value;
+        moneyAfter.textContent = newMoney
+        
+        let heightBefore = document.getElementById('height-before');
+        let heightAfter = document.getElementById('height-after');
+        
+        let moneyBeforeHeight = parseFloat(heightBefore.style.height);
+        
+        heightAfter.style.height = moneyBeforeHeight + moneyBeforeHeight * (1 - +money.value / newMoney) + 'px';
+      }
+      
+      function capitalize(money, months, capitalization) {
+        const RATE = 0.12;
+        const RATE_PERIOD = 12;
+        
+        let result = 0;
+        
+        if (capitalization) {
+          result = +money * Math.pow((1 + RATE / RATE_PERIOD), +months);
+        } else {
+          result = +money + +money * +months * RATE / RATE_PERIOD;
+        }
+        
+        return Math.round(result);
+      }
+    </script>
+
+
+  </body>
+</html>
