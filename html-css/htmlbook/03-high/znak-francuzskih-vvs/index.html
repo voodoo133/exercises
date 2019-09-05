@@ -1,0 +1,122 @@
+﻿<!-- description: http://htmlbook.ru/practical/znak-francuzskih-vvs -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title></title>
+    <style>
+      .sign  {
+        margin: 50px;
+      }
+
+      .sing--v1 {
+        width: 200px;
+        height: 200px;
+        
+        border-radius: 50%;
+        background: radial-gradient(#000e5c 0%, #000e5c 25%, #fff 25%, #fff 50%, #c70202 50%);
+      }
+
+      .sing--v2 {
+        width: 140px;
+        height: 140px;
+        margin-left: 80px;
+
+        background-color: #000e5c;
+        
+        border-radius: 50%;
+        box-shadow: inset 0 0 0 35px #fff, 0 0 0 30px #c70202;
+      }
+
+      .sing--v3 {
+        position: relative;
+        width: 200px;
+        height: 200px;
+        
+        border-radius: 50%;
+        background-color: #c70202;
+      }
+
+      .sing--v3 .sign__inner {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+
+        width: 70%;
+        height: 70%;
+        
+        border-radius: 50%;
+        background-color: #fff;
+
+        transform: translate(-50%, -50%);
+      }
+
+      .sing--v3 .sign__center {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+
+        width: 50%;
+        height: 50%;
+        
+        border-radius: 50%;
+        background-color: #000e5c;
+
+        transform: translate(-50%, -50%);
+      }
+
+      .sing--v4 {
+        position: relative;
+        width: 200px;
+        height: 200px;
+        
+        border-radius: 50%;
+        background-color: #c70202;
+      }
+
+      .sing--v4::before {
+        content: "";
+
+        position: absolute;
+        top: 50%;
+        left: 50%;
+
+        width: 70%;
+        height: 70%;
+        
+        border-radius: 50%;
+        background-color: #fff;
+
+        transform: translate(-50%, -50%);
+      }
+
+      .sing--v4::after {
+        content: "";
+
+        position: absolute;
+        top: 50%;
+        left: 50%;
+
+        width: 35%;
+        height: 35%;
+        
+        border-radius: 50%;
+        background-color: #000e5c;
+
+        transform: translate(-50%, -50%);
+      }
+
+    </style>
+  </head>
+  <body>
+    <div class="sign sing--v1"></div>
+    <div class="sign sing--v2"></div>
+    <div class="sign sing--v3">
+      <div class="sign__inner">
+        <div class="sign__center">
+        </div>
+      </div>
+    </div>
+    <div class="sign sing--v4"></div>
+  </body>
+</html>
