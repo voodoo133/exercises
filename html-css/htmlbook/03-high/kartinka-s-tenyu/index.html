@@ -1,0 +1,43 @@
+﻿<!-- description: http://htmlbook.ru/practical/kartinka-s-tenyu -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title></title>
+    <style>
+      .block {
+        position: relative;
+
+        width: 300px;
+        height: 200px;
+        margin: auto;
+        padding: 10px;
+
+        background: #fff;
+        border: 1px solid rgba(128, 128, 128, 0.3);
+        border-radius: 5px;
+      }
+
+      .block::after {
+        content: "";
+
+        position: absolute;
+        top: 0;
+        left: 50%;
+        z-index: -1;
+
+        width: 70%;
+        height: 90%;
+
+        box-shadow: 0px 25px 20px 0px rgba(0, 0, 0, 0.6);
+
+        transform: translateX(-50%);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="block">
+      <img class="block__img" src="https://i.obozrevatel.com/2018/5/13/picture272.jpg" alt="deer" width="300" height="200" />
+    </div>
+  </body>
+</html>

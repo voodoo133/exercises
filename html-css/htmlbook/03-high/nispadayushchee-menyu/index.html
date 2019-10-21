@@ -1,0 +1,110 @@
+﻿<!-- description: http://htmlbook.ru/practical/nispadayushchee-menyu -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title></title>
+    <style>
+      .menu {
+        display: flex;
+
+        list-style-type: none;
+      }
+
+      .menu__item {
+        position: relative;
+
+        margin-right: 30px;
+        padding: 0 0 10px 0;
+      }
+
+      .menu__item-name {
+        position: relative;
+
+        display: inline-block;
+
+        padding: 3px 7px 7px 7px;
+      }
+
+      .menu__item:hover > .menu__item-name {
+        color: #000;
+        text-decoration: none;
+
+        background-color: #fff;
+        border-radius: 5px 5px 0 0;
+      }
+
+      .menu__item:hover > .menu__item-name::after {
+        content: "";
+
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+
+        width: 100%;
+        height: calc(100% - 4px);
+
+        border-radius: 5px 5px 0 0;
+        box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.5);
+      }
+
+      .submenu {
+        position: absolute;
+        top: 25px;
+        left: 0;
+        z-index: -1;
+        
+        display: none;
+        width: 100px;
+        margin: 0;
+        padding: 5px;
+
+        background-color: #fff;
+        box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.5);    
+        
+        list-style-type: none;
+      }
+
+      .menu__item:hover > .submenu {
+        display: block;
+      }
+
+      .submenu__item {
+        padding: 2px;
+
+        color: #0000ed;
+
+        cursor: pointer;
+      }
+
+      .submenu__item:hover {
+        color: #fff;
+
+        background-color: #38acff;
+      }
+    </style>
+  </head>
+  <body>
+    <ul class="menu">
+      <li class="menu__item">
+        <a class="menu__item-name" href="#">Файл</a>
+        <ul class="submenu">
+          <li class="submenu__item">Новый</li>
+          <li class="submenu__item">Открыть</li>
+          <li class="submenu__item">Сохранить</li>
+          <li class="submenu__item">Закрыть</li>
+        </ul>
+      </li>
+      <li class="menu__item">
+        <a class="menu__item-name" href="#">Правка</a>
+        <ul class="submenu">
+          <li class="submenu__item">Вырезать</li>
+          <li class="submenu__item">Копировать</li>
+          <li class="submenu__item">Вставить</li>
+          <li class="submenu__item">Удалить</li>
+        </ul>
+      </li>
+    </ul>
+  </body>
+</html>

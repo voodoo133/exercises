@@ -1,0 +1,38 @@
+﻿<!-- description: http://htmlbook.ru/practical/indikator-vypolneniya -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title></title>
+    <style>
+      .progress-bar {
+        width: 250px;
+        display: -webkit-flex;
+        display: -moz-flex;
+        display: -ms-flex;
+        display: -o-flex;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        
+        background: linear-gradient(to right, #f0eee1, #f0eee1 50%, #fff 50%);
+        border: 1px solid #000;
+      }
+
+      .progress-bar::before {
+        content: "0";
+        margin-left: 5px;
+      }
+
+      .progress-bar::after {
+        content: "5";
+        margin-right: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="progress-bar">
+      <span class="progress-bar__state">50%</span>
+    </div>
+  </body>
+</html>
