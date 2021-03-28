@@ -1,0 +1,18 @@
+<!-- description: http://learn.javascript.ru/task/destruct-user -->
+<html>
+  <head>
+    <meta charset="utf-8"/>
+  </head>
+  <body>
+    <script>
+      let user = { name: "John", years: 30 };
+
+      // ваш код должен быть с левой стороны:
+      let { name, years: age, isAdmin = false } = user;
+
+      alert( name ); // John
+      alert( age ); // 30
+      alert( isAdmin ); // false
+    </script>
+  </body>
+</html>

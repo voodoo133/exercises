@@ -1,0 +1,27 @@
+<!-- description: http://learn.javascript.ru/task/serialize-event-circular -->
+<html>
+  <head>
+    <meta charset="utf-8"/>
+  </head>
+  <body>
+    <script>
+      let room = {
+        number: 23
+      };
+
+      let meetup = {
+        title: "Совещание",
+        occupiedBy: [{name: "Иванов"}, {name: "Петров"}],
+        place: room
+      };
+
+      // цикличные ссылки
+      room.occupiedBy = meetup;
+      meetup.self = meetup;
+
+      console.log(JSON.stringify(meetup, function replacer(key, value) {
+        return (key.length !== 0 && value === meetup) ? undefined : value;
+      }));
+    </script>
+  </body>
+</html>

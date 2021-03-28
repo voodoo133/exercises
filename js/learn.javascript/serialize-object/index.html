@@ -1,0 +1,20 @@
+<!-- description: http://learn.javascript.ru/task/serialize-object -->
+<html>
+  <head>
+    <meta charset="utf-8"/>
+  </head>
+  <body>
+    <script>
+      let user = {
+        name: "Василий Иванович",
+        age: 35
+      };
+
+      let json = JSON.stringify(user);
+
+      let userFromJSON = JSON.parse(json);
+
+      console.log(userFromJSON);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,27 @@
+<!-- description: http://learn.javascript.ru/task/array-negative -->
+<html>
+  <head>
+    <meta charset="utf-8"/>
+  </head>
+  <body>
+    <script>
+      let array = [1, 2, 3];
+
+      array = new Proxy(array, {
+        get(target, prop, receiver) {
+          if (+prop < 0) {
+            prop = target.length + +prop;
+          }
+
+          return Reflect.get(target, prop, receiver);
+        }
+      });
+
+      alert( array[2] ); // 3
+      alert( array[-1] ); // 3
+      alert( array[-2] ); // 2
+
+      // вся остальная функциональность массивов должна остаться без изменений
+    </script>
+  </body>
+</html>

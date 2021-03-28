@@ -1,0 +1,70 @@
+<!-- description: https://webref.ru/individual/2056 -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <style type="text/css">
+      .steps {
+        width: 540px;
+        margin: 0;
+        padding: 5px 10px;
+
+        font-family: sans-serif;
+
+        background-color: #F0F0F0;
+
+        list-style-type: none;
+      }
+
+      .steps::after {
+        content: "";
+
+        display: block;
+        clear: both;
+      }
+
+      .steps__step {
+        float: left;
+
+        margin-right: 25px;
+      }
+
+      .steps__step-num {
+        display: inline-block;
+        padding: 5px 10px;
+        margin-right: 5px;
+
+        text-align: center;
+
+        background-color: #D4D8D3;
+        border-radius: 50%;
+      }
+
+      .steps__step--current .steps__step-num {
+        color: #fff;
+
+        background-color: #91BE4A;
+      }
+    </style>
+  </head>
+  <body>
+    <ul class="steps">
+      <li class="steps__step">
+        <span class="steps__step-num">1</span>
+        <span class="steps__step-text">Заказ</span>
+      </li>
+      <li class="steps__step">
+        <span class="steps__step-num">2</span>
+        <span class="steps__step-text">Подтверждение</span>
+      </li>
+      <li class="steps__step steps__step--current">
+        <span class="steps__step-num">3</span>
+        <span class="steps__step-text">Оплата</span>
+      </li>
+      <li class="steps__step">
+        <span class="steps__step-num">4</span>
+        <span class="steps__step-text">Доставка</span>
+      </li>
+    </ul>
+  </body>
+</html>

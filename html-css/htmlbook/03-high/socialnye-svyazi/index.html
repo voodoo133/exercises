@@ -1,0 +1,119 @@
+﻿<!-- description: http://htmlbook.ru/practical/socialnye-svyazi -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title></title>
+    <style>
+      .people {
+        display: flex;
+
+        list-style-type: none;
+      }
+
+      .person {
+        position: relative;
+
+        margin-right: 25px;
+      }
+
+      .person:last-of-type {
+        margin-right: 0;
+      }
+
+      .person__photo {
+        display: block;
+
+        border: 3px solid #d6c5cb;
+        border-radius: 50%;
+      }
+
+      .person__icon {
+        position: absolute;
+
+        display: block;
+        width: 30px;
+        height: 30px;
+
+        background-image: url("http://htmlbook.ru/files/social_icons.png");
+      }
+
+      .person__icon--absence {
+        display: none;
+      }
+
+      .person__icon--fb {
+        top: 68px;
+        left: -13px;
+
+        background-position-x: 0%; 
+        background-position-y: 100%;
+      }
+
+      .person__icon--fb:hover {
+        background-position-y: 0%;
+      }
+
+      .person__icon--tw {
+        top: 34px;
+        left: -5px;
+
+        background-position-x: 33%;
+        background-position-y: 100%;
+      }
+
+      .person__icon--tw:hover {
+        background-position-y: 0%;
+      }
+
+      .person__icon--vk {
+        top: 6px;
+        left: 15px;
+
+        background-position-x: 67%;
+        background-position-y: 100%;
+      }
+
+      .person__icon--vk:hover {
+        background-position-y: 0%;
+      }
+
+      .person__icon--email {
+        top: 149px;
+        left: 69px;
+
+        background-position-x: 100%;
+        background-position-y: 100%;
+      }
+
+      .person__icon--email:hover {
+        background-position-y: 0%;
+      }
+    </style>
+  </head>
+  <body>
+    <ul class="people">
+      <li class="people__item person">
+        <img class="person__photo" src="http://htmlbook.ru/files/person1.jpg" alt="person photo"/>
+        <a class="person__icon person__icon--fb" href="#" title="Facebook"></a>
+        <a class="person__icon person__icon--tw" href="#" title="Twitter"></a>
+        <a class="person__icon person__icon--vk" href="#" title="VK"></a>
+        <a class="person__icon person__icon--email" href="mailto:example@mail.com" title="Написать письмо"></a>
+      </li>
+      <li class="people__item person">
+        <img class="person__photo" src="http://htmlbook.ru/files/person2.jpg" alt="person photo"/>
+        <a class="person__icon person__icon--fb person__icon--absence" href="#" title="Facebook"></a>
+        <a class="person__icon person__icon--tw person__icon--absence" href="#" title="Twitter"></a>
+        <a class="person__icon person__icon--vk" href="#" title="VK"></a>
+        <a class="person__icon person__icon--email" href="mailto:example@mail.com" title="Написать письмо"></a>
+      </li>
+      <li class="people__item person">
+        <img class="person__photo" src="http://htmlbook.ru/files/person3.jpg" alt="person photo"/>
+        <a class="person__icon person__icon--fb" href="#" title="Facebook"></a>
+        <a class="person__icon person__icon--tw person__icon--absence" href="#" title="Twitter"></a>
+        <a class="person__icon person__icon--vk" href="#" title="VK"></a>
+        <a class="person__icon person__icon--email" href="mailto:example@mail.com" title="Написать письмо"></a>
+      </li>
+    </ul>
+  </body>
+</html>

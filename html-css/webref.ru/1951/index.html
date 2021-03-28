@@ -1,0 +1,75 @@
+﻿<!-- description: https://webref.ru/individual/1951 -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title></title>
+    <style>
+      body {
+        background-color: #F7F6F2;
+      }
+
+      .images {
+        display: flex;
+        margin: 20px;
+      }
+
+      .images__img-wrap {
+        position: relative;
+    
+        margin-right: 35px;
+        padding: 12px;
+
+        overflow: hidden;
+      }
+
+      .images__img-wrap:last-of-type {
+        margin-right: 0;
+      }
+
+      .images__img-wrap::before,
+      .images__img-wrap::after {
+        content: "";
+
+        position: absolute;
+
+        width: 60px;
+        height: 60px;
+        
+        outline: 1px dashed #D3CCB8;
+        outline-offset: -3px;
+        background-color: #F7F6F2;
+
+        box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.5);
+
+        transform: rotate(45deg);
+      } 
+
+      .images__img-wrap::before {
+        bottom: -33px;
+        left: -33px;
+      }
+
+      .images__img-wrap::after {
+        top: -33px;
+        right: -33px;
+      }
+
+      .images__img {
+        display: block;
+        border: 5px solid #DAD6CF;
+        outline: 3px solid #B8B096;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="images">
+      <div class="images__img-wrap">
+        <img class="images__img" src="https://webref.ru/assets/files/cocktail.jpg" alt="cocktail image" />
+      </div>
+      <div class="images__img-wrap">
+        <img class="images__img" src="https://webref.ru/assets/files/cocktail-2.jpg" alt="cocktail image" />
+      </div>
+    </div>
+  </body>
+</html>

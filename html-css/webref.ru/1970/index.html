@@ -1,0 +1,39 @@
+<!-- description: https://webref.ru/individual/1970 -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title></title>
+    <style>
+      .cards {
+        position: relative;
+
+        margin: 80px;
+      }
+
+      .cards__card {
+        position: absolute;
+        top: 0;
+      }
+
+      .cards__card:nth-child(1) {
+        left: -30px;
+
+        transform: rotate(-15deg);
+      }
+
+      .cards__card:nth-child(3) {
+        left: 30px;
+
+        transform: rotate(15deg);
+      }
+    </style>
+</head>
+<body>
+  <div class="cards">
+    <img class="cards__card" src="https://webref.ru/assets/files/3.png" alt="card" />
+    <img class="cards__card" src="https://webref.ru/assets/files/7.png" alt="card" />
+    <img class="cards__card" src="https://webref.ru/assets/files/ace.png" alt="card" />
+  </div>
+</body>
+</html>

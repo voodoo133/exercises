@@ -1,0 +1,41 @@
+<!-- description: http://learn.javascript.ru/task/observable -->
+<html>
+  <head>
+    <meta charset="utf-8"/>
+  </head>
+  <body>
+    <script>
+      function makeObservable(target) {
+        target.observeCallbacks = [];
+
+        target.observe = function (f) {
+          this.observeCallbacks.push(f);
+        }
+
+        let proxyTarget = new Proxy(target, {
+          set(target, prop, val, receiver) {
+            let result = Reflect.set(target, prop, val, receiver);
+
+            if (result) {
+              const observeCallbacks = Reflect.get(target, 'observeCallbacks', receiver);
+              observeCallbacks.forEach((cb) => cb(prop, val));
+
+              return result;
+            }
+          }
+        });
+
+        return proxyTarget;
+      }
+
+      let user = {};
+      user = makeObservable(user);
+
+      user.observe((key, value) => {
+        alert(`SET ${key}=${value}`);
+      });
+
+      user.name = "John"; // выводит: SET name=John
+    </script>
+  </body>
+</html>

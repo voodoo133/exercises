@@ -1,0 +1,79 @@
+﻿<!-- description: http://htmlbook.ru/practical/shagi -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title></title>
+    <style>
+      body {
+        padding: 10px;
+      }
+
+      .steps {
+        display: flex;
+        margin: 0;
+        padding: 0;
+
+        list-style: none;
+      }
+
+      .steps__item {
+        position: relative;
+
+        padding: 5px 30px;
+
+        color: #000;
+
+        background: linear-gradient(#DEDEDE, #BFBFBF, #DEDEDE);
+      }
+
+      .steps__item--active {
+        background: linear-gradient(#AEE188, #64C51D, #AEE188);
+        color: #fff;
+      }
+
+      .steps__item::after {
+        content: "";
+
+        position: absolute;
+
+        top: -1px;
+        right: -8px;
+        z-index: 1;
+
+        height: 30px;
+        width: 30px;
+        box-sizing: border-box;
+
+        border: 7px solid #fff;
+        border-left-color: transparent;
+        border-bottom-color: transparent;
+
+        transform: rotate(45deg) skew(20deg, 20deg);
+      }
+
+      .steps__item:first-of-type {
+        padding: 5px 32px 5px 30px;
+      }
+
+      .steps__item:last-of-type {
+        margin-right: 0;
+        padding: 5px 26px 5px 32px;
+      }
+
+      .steps__item:last-of-type::after {
+        width: 0;
+        height: 0;
+        border: none;
+      }
+    </style>
+  </head>
+  <body>
+    <ul class="steps">
+      <li class="steps__item">Шаг 1</li>
+      <li class="steps__item steps__item--active">Шаг 2</li>
+      <li class="steps__item">Шаг 3</li>
+      <li class="steps__item">Шаг 4</li>
+    </ul>
+  </body>
+</html>

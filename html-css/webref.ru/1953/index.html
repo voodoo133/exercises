@@ -1,0 +1,153 @@
+<!-- description: https://webref.ru/individual/1953 -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <style type="text/css">
+    body {
+      background-color: #18326D;
+    }
+
+    .form {
+      margin: 30px;
+      padding: 20px 35px;
+
+      border: 1px solid #44567E;
+      background-color: #2B417A;
+      box-shadow: 5px 5px 6px 2px rgb(0 0 0 / 0.5);
+    }
+
+    .form__item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+
+    .form__item:last-of-type {
+      margin-bottom: 0;
+    }
+
+    .form__item--message {
+      align-items: start;
+    }
+
+    .form__field--wrap {
+      position: relative;
+    }
+
+    .form__clear-field {
+      position: absolute;
+      top: 7px;
+      right: 7px;
+
+      width: 10px;
+      height: 10px;
+    }
+
+    .form__clear-field::before,
+    .form__clear-field::after {
+      content: "";
+
+      position: absolute;
+
+      width: 10px;
+      height: 10px;
+
+      border: 2px solid #fff;
+      border-top: none;
+      border-right: none;
+      border-bottom: none;
+
+      background: transparent;
+    }
+
+    .form__clear-field::before {
+      top: 4px;
+      right: -5px;
+      
+      transform: rotate(45deg);
+    }
+
+    .form__clear-field::after {
+      top: -3px;
+      right: -5px;
+
+      transform: rotate(-45deg);
+    }
+
+    .form__field-label {
+      width: 85px;
+      margin-right: 10px;
+
+
+      color: #7A98E5;
+      text-align: right;
+    }
+
+    .form__field {
+      width: 340px;
+      padding: 2px 8px;
+      box-sizing: border-box;
+
+      color: #fff;
+
+      border: none;
+      background-color: #182A50;
+    }
+
+    .form__field--input-text {
+      height: 25px;
+
+      border-right: 1px solid #425475;
+      border-bottom: 1px solid #425475;
+    }
+
+    .form__field--textarea {
+      height: 110px;
+
+      resize: none;
+      overflow-y: scroll;
+    }
+
+    .form__btn {
+      margin-left: 95px;
+      padding: 11px 26px;
+
+      text-transform: uppercase;
+      font-weight: 700;
+      color: #6579AF;
+
+      border: none;
+      background-color: #0D1321;
+    }
+  </style>
+</head>
+<body>
+  <form class="form" action="" method="post">
+    <div class="form__item">
+      <label class="form__field-label" for="">Имя</label>
+      <div class="form__field--wrap">
+        <input class="form__field form__field--input-text" type="text" value="Влад">
+        <div class="form__clear-field">
+          
+        </div>
+      </div>
+    </div>
+    <div class="form__item">
+      <label class="form__field-label" for="">Фамилия</label>
+      <input class="form__field form__field--input-text" type="text">
+    </div>
+    <div class="form__item">
+      <label class="form__field-label" for="">Email</label>
+      <input class="form__field form__field--input-text" type="email">
+    </div>
+    <div class="form__item form__item--message">
+      <label class="form__field-label" for="">Сообщение</label>
+      <textarea class="form__field form__field--textarea"></textarea>
+    </div>
+    <div class="form__item">
+      <button class="form__btn form__btn--submit">Отправить</button>
+    </div>
+  </form>
+</body>
+</html>

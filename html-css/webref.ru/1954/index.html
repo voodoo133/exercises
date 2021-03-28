@@ -1,0 +1,66 @@
+<!-- description: https://webref.ru/individual/1954 -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <style type="text/css">
+    :root {
+      --header-lines-margin: 10px;
+    }
+
+    .block {
+      width: 515px;
+      padding: 20px 20px 35px;
+
+      color: #fff;
+      font-family: sans-serif;
+
+      background-color: #795548;
+    }
+
+    .block__header {
+      display: flex;
+      margin: 0 0 20px;
+      padding: 0;
+      align-items: center;
+
+      font-weight: 400;
+      text-align: center;
+
+      color: #FEEA3B;
+    }
+
+    .block__header::before,
+    .block__header::after {
+      content: "";
+
+      height: 1px;
+      flex-grow: 2;
+
+      background-color: #FEEA3B;
+    }
+
+    .block__header::before {
+      margin-right: var(--header-lines-margin);
+    }
+
+    .block__header::after {
+      margin-left: var(--header-lines-margin);
+    }
+
+    .block__text {
+      margin: 0;
+      padding: 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="block">
+      <h2 class="block__header">Апперцепция</h2>
+      <p class="block__text">
+        Гештальт, как бы это ни казалось парадоксальным, понимает культурный комплекс,
+        к тому же этот вопрос касается чего-то слишком общего.
+      </p>
+  </div>
+</body>
+</html>

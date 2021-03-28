@@ -1,0 +1,112 @@
+﻿<!-- description: http://htmlbook.ru/practical/hod-konyom -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title></title>
+    <style>
+      .field {
+        border: 1px solid #000;
+        border-collapse: collapse;
+      }
+
+      .field__cell {
+        width: 100px;
+        height: 100px;
+        padding: 0;
+
+        border: 1px solid #000;
+
+        cursor: pointer;
+      }
+
+      .field__label {
+        display: flex;
+        width: 100%;
+        height: 100%;
+        justify-content: center;
+        align-items: center;
+
+        cursor: pointer;
+      }
+
+      .field__checkbox {
+        display: none;
+      }
+
+      .field__horse-icon {
+        display: none;
+        font-size: 60px;
+        color: red;
+      }
+
+      .field__checkbox:checked ~ .field__horse-icon {
+        display: inline;
+      }
+    </style>
+  </head>
+  <body>
+    <table class="field">
+      <tr class="field__row">
+        <td class="field__cell">
+          <label class="field__label">
+            <input class="field__checkbox" type="checkbox" />
+            <span class="field__horse-icon">♘</span>
+          </label>
+        </td>
+        <td class="field__cell">
+          <label class="field__label">
+            <input class="field__checkbox" type="checkbox" />
+            <span class="field__horse-icon">♘</span>
+          </label>
+        </td>
+        <td class="field__cell">
+          <label class="field__label">
+            <input class="field__checkbox" type="checkbox" />
+            <span class="field__horse-icon">♘</span>
+          </label>
+        </td>
+      </tr>
+      <tr class="field__row">
+        <td class="field__cell">
+          <label class="field__label">
+            <input class="field__checkbox" type="checkbox" />
+            <span class="field__horse-icon">♘</span>
+          </label>
+        </td>
+        <td class="field__cell">
+          <label class="field__label">
+            <input class="field__checkbox" type="checkbox" />
+            <span class="field__horse-icon">♘</span>
+          </label>
+        </td>
+        <td class="field__cell">
+          <label class="field__label">
+            <input class="field__checkbox" type="checkbox" />
+            <span class="field__horse-icon">♘</span>
+          </label>
+        </td>
+      </tr>
+      <tr class="field__row">
+        <td class="field__cell">
+          <label class="field__label">
+            <input class="field__checkbox" type="checkbox" />
+            <span class="field__horse-icon">♘</span>
+          </label>
+        </td>
+        <td class="field__cell">
+          <label class="field__label">
+            <input class="field__checkbox" type="checkbox" />
+            <span class="field__horse-icon">♘</span>
+          </label>
+        </td>
+        <td class="field__cell">
+          <label class="field__label">
+            <input class="field__checkbox" type="checkbox" />
+            <span class="field__horse-icon">♘</span>
+          </label>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>

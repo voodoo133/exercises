@@ -1,0 +1,113 @@
+﻿<!-- description: http://htmlbook.ru/practical/hosting -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title></title>
+    <style>
+      body {
+        padding: 30px;
+
+        font-family: Tahoma,Arial,sans-serif;
+
+        background-color: #4E6379;
+      }
+
+      .hosting {
+        display: flex;
+        width: calc(250px * 3);
+        margin: 0;
+        padding: 10px 0;
+
+        background-color: #FFFFFF;
+        border-radius: 6px;
+        box-shadow: 0 9px 18px 3px rgba(0, 0, 0, 0.7);
+
+        list-style-type: none;
+      }
+
+      .hosting__item {
+        position: relative;
+
+        width: 250px;
+        padding: 60px 25px 10px;
+        box-sizing: border-box;
+
+        text-align: center;
+
+        border-right: 1px solid #D9D9D9;
+      }
+
+      .hosting__item:last-of-type {
+        border-right: none;
+      }
+
+      .hosting__item::before {
+        content: "";
+
+        position: absolute;
+        top: 5px;
+        left: 50%;
+
+        width: 60px;
+        height: 42px;
+
+        background-image: url("http://htmlbook.ru/files/hosting.png");
+        background-repeat: no-repeat;
+
+        transform: translateX(-50%);
+      }
+
+      .hosting__item--cloud::before {
+        background-position: 0 -42px;
+      }
+
+      .hosting__item--server::before {
+        background-position: 0 -84px;
+      }
+
+      .hosting__name {
+        margin: 0 0 15px;
+
+        font-size: 16px;
+        color: #F56332;
+      }
+
+      .hosting__price {
+        margin: 0 0 15px;
+
+        font-size: 14px;
+      }
+
+      .hosting__more {
+        padding: 5px 10px;
+
+        font-size: 14px;
+        color: #fff;
+        text-decoration: none;
+
+        background-color: #F56332;
+        border-radius: 2px;
+      }
+    </style>
+  </head>
+  <body>
+    <ul class="hosting">
+      <li class="hosting__item hosting__item--virtual">
+        <h2 class="hosting__name">Виртуальный хостинг</h2>
+        <p class="hosting__price">3.95$ в месяц</p>
+        <a class="hosting__more" href="#">Подробнее</a>
+      </li>
+      <li class="hosting__item hosting__item--cloud">
+        <h2 class="hosting__name">Облачный хостинг</h2>
+        <p class="hosting__price">68.95$ в месяц</p>
+        <a class="hosting__more" href="#">Подробнее</a>
+      </li>
+      <li class="hosting__item hosting__item--server">
+        <h2 class="hosting__name">Выделенный сервер</h2>
+        <p class="hosting__price">217.95$ в месяц</p>
+        <a class="hosting__more" href="#">Подробнее</a>
+      </li>
+    </ul>
+  </body>
+</html>

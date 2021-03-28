@@ -1,0 +1,43 @@
+﻿<!-- description: https://webref.ru/individual/1956 -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title></title>
+    <style>
+      body {
+        background-color: #FFFFFF;
+      }
+
+      .image {
+        position: relative;
+
+        width: 500px;
+        margin: 50px;
+      }
+
+      .image::before {
+        content: "";
+
+        position: absolute;
+        right: 15px;
+        bottom: 15px;
+
+        width: 42px;
+        height: 42px;
+        
+        border: 1px solid #000;
+        background: rgba(255, 255, 255, 0.5) url('https://webref.ru/assets/files/expand.png') center / 75% no-repeat;
+      }
+
+      .image__pic {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="image">
+      <img class="image__pic" src="https://webref.ru/assets/files/dessert.jpg" alt="dessert image" />
+    </div>
+  </body>
+</html>

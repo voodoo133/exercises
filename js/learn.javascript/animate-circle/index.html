@@ -1,0 +1,34 @@
+<!-- description: http://learn.javascript.ru/task/animate-circle -->
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <style>
+      .circle {
+        transition-property: width, height, margin-left, margin-top;
+        transition-duration: 2s;
+        position: fixed;
+        transform: translateX(-50%) translateY(-50%);
+        background-color: red;
+        border-radius: 50%;
+
+        width: 0px;
+        height: 0px;
+      }
+    </style>
+  </head>
+  <body>
+    <button onclick="showCircle(150, 150, 100)">showCircle(150, 150, 100)</button>
+    <div class="circle" id="circle"></div>
+    <script>
+      function showCircle(cx, cy, radius) {
+        let circleElem = document.getElementById('circle');
+
+        circleElem.style.top = `${cx}px`;
+        circleElem.style.left = `${cy}px`;
+
+        circleElem.style.width = `${radius * 2}px`;
+        circleElem.style.height = `${radius * 2}px`;
+      }
+    </script>
+  </body>
+</html>

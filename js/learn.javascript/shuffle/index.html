@@ -1,0 +1,25 @@
+<!-- description: http://learn.javascript.ru/task/shuffle -->
+<html>
+  <head>
+    <meta charset="utf-8"/>
+  </head>
+  <body>
+    <script>
+
+      function shuffle(arr) {
+        arr.sort(() => Math.random() - 0.5);
+      }
+
+      let arr = [1, 2, 3];
+
+      shuffle(arr);
+      console.log(arr);
+
+      shuffle(arr);
+      console.log(arr);
+
+      shuffle(arr);
+      console.log(arr);
+    </script>
+  </body>
+</html>

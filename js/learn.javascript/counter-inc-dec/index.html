@@ -1,0 +1,36 @@
+<!-- description: http://learn.javascript.ru/task/counter-inc-dec -->
+<html>
+  <head>
+    <meta charset="utf-8"/>
+  </head>
+  <body>
+    <script>
+        function makeCounter() {
+          let count = 0;
+        
+          let counter = function () {
+            return count++;
+          };
+
+          counter.set = (v) => count = v;
+
+          counter.decrease = () => count--;
+
+          return counter;
+        }
+        
+        let counter = makeCounter();
+        
+        alert( counter() ); // 0
+        alert( counter() ); // 1
+        
+        counter.set(10); // установить новое значение счётчика
+        
+        alert( counter() ); // 10
+        
+        counter.decrease(); // уменьшить значение счётчика на 1
+        
+        alert( counter() ); // 10 (вместо 11)
+    </script>
+  </body>
+</html>

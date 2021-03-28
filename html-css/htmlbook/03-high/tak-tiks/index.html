@@ -1,0 +1,87 @@
+﻿<!-- description: http://htmlbook.ru/practical/tak-tiks -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title></title>
+    <style>
+      .field {
+        border-collapse: collapse;
+
+        overflow: hidden;
+      }
+
+      .field__cell {
+        position: relative;
+
+        width: 60px;
+        height: 60px;
+
+        background: radial-gradient(#0063ed, #0063ed 50%, transparent 50%);
+
+        border: 1px solid #000;
+      }
+
+      .field__row:hover .field__cell {
+        background: radial-gradient(#0063ed, #0063ed 50%, #ffe482 50%);
+      }
+
+      .field__row:hover .field__cell:hover {
+        background: radial-gradient(#000, #000 50%, #ffcc00 50%);
+      }
+
+      .field__cell:hover::before {
+        content: "";
+
+        position: absolute;
+        top: -500%;
+        left: 0;
+        z-index: -1;
+
+        width: 100%;
+        height: 1000%;
+
+        background: #ffe482;
+      }
+    </style>
+  </head>
+  <body>
+    <table class="field">
+      <tr class="field__row">
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+      </tr>
+      <tr class="field__row">
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+      </tr>
+      <tr class="field__row">
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+      </tr>
+      <tr class="field__row">
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+      </tr>
+      <tr class="field__row">
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+        <td class="field__cell"></td>
+      </tr>
+    </table>
+  </body>
+</html>

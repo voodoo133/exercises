@@ -1,0 +1,68 @@
+<!-- description: https://webref.ru/individual/2058 -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <style type="text/css">
+    .pagination {
+      width: 400px;
+      margin: 20px 10px;
+
+      line-height: 34px;
+    }
+
+    .pagination__pages-list {
+      float: right;
+
+      margin: 0;
+      padding: 0;
+
+      list-style-type: none;
+    }
+
+    .pagination__page {
+       float: left;
+       margin-right: 5px;
+    }
+
+    .pagination__link {
+      display: inline-block;
+      width: 34px;
+      height: 34px;
+
+      color: #AA8845;
+      text-align: center;
+      text-decoration: none;
+
+      border: 1px solid #DAD6CF;
+      background-color: #EBE8DF;
+    }
+
+    .pagination__page--current .pagination__link {
+      color: #fff;
+
+      border-color: #7B3418;
+      background-color: #A44823;
+    }
+  </style>
+</head>
+<body>
+  <div class="pagination">
+    <span class="pagination__current-page-text">Стр. 1 из 4</span>
+    <ul class="pagination__pages-list">
+      <li class="pagination__page pagination__page--current">
+        <a class="pagination__link" href="#">1</a>
+      </li>
+      <li class="pagination__page">
+        <a class="pagination__link" href="#">2</a>
+      </li>
+      <li class="pagination__page">
+        <a class="pagination__link" href="#">3</a>
+      </li>
+      <li class="pagination__page">
+        <a class="pagination__link" href="#">4</a>
+      </li>
+    </ul>
+  </div>
+</body>
+</html>

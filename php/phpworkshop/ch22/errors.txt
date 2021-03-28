@@ -1,0 +1,1 @@
+2021-01-02 16:58:59 - D:\xampp\htdocs\exercises\php\phpworkshop\ch22\set_error_handler.php:11 Division by zero(2)

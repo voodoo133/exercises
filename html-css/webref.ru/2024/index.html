@@ -1,0 +1,96 @@
+<!-- description: https://webref.ru/individual/2024 -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <style type="text/css">
+    .order {
+      width: 700px;
+      padding: 24px 24px 28px;
+
+      font-family: sans-serif;
+
+      border: 1px solid #E9EAEC;
+      border-radius: 5px;
+    }
+
+    .order__header {
+      margin: 0;
+      padding: 0 0 10px;
+
+      font-size: 20px;
+      font-weight: 500;
+      text-transform: uppercase;
+
+      border-bottom: 1px solid #E9EAEC;
+    }
+
+    .order__goods-list {
+      margin: 0;
+      padding: 0;
+
+      list-style: none;
+    }
+
+    .order__goods-list-item {
+      padding: 12px 0;
+
+      font-size: 15px;
+      color: #848994;
+
+      border-bottom: 1px solid #E9EAEC;
+    }
+
+    .order__goods-list-item:last-of-type {
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+
+    .order__goods-header {
+      font-size: 17px;
+      font-weight: 500;
+      color: #000;
+      text-transform: uppercase;
+    }
+
+    .order__goods-price {
+      float: right;
+    }
+
+    .order__goods-summary {
+      font-size: 17px;
+      font-weight: 500;
+      color: #000;
+      text-transform: uppercase;
+    }
+
+    .order__goods-summary .order__goods-price {
+      font-size: 20px;
+      color: #50A2DE;
+    }
+  </style>
+</head>
+<body>
+  <div class="order">
+    <h2 class="order__header">Ваш заказ</h2>
+    <ul class="order__goods-list">
+      <li class="order__goods-list-item order__goods-header">
+        <span class="order__goods-product">Продукт</span>
+        <span class="order__goods-price">Цена</span>
+      </li>
+      <li class="order__goods-list-item">
+        <span class="order__goods-product">Футболка</span>
+        <span class="order__goods-price">599 ₽</span>
+      </li>
+      <li class="order__goods-list-item">
+        <span class="order__goods-product">Шорты</span>
+        <span class="order__goods-price">299 ₽</span>
+      </li>
+      <li class="order__goods-list-item order__goods-summary">
+        <span class="order__goods-product">Итого</span>
+        <span class="order__goods-price">898 ₽</span>
+      </li>
+    </ul>
+  </div>
+</body>
+</html>

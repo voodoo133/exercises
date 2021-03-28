@@ -1,0 +1,4 @@
+2020-12-07 07:52:55: message - Атрибут var не существует
+					 trace	 - #0 D:\xampp\htdocs\exercises\php\phpworkshop\ch21\index.php(42): User->__set('var', 100)
+							   #1 {main}
+

@@ -1,0 +1,62 @@
+<!-- description: https://webref.ru/individual/2416 -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <style type="text/css">
+    .weather {
+      display: flex;
+      margin: 0;
+      padding: 0;
+
+      list-style-type: none;
+    }
+
+    .weather__item {
+      width: 150px;
+      padding: 25px 10px 30px;
+      margin-right: 15px;
+      box-sizing: border-box;
+
+      font-size: 17px;
+      color: #fff;
+      text-align: center;
+
+      background-color: #2962A9;
+    }
+
+    .weather__item:last-of-type {
+      margin-right: 0;
+    }
+
+    .weather__weekday {
+      margin-bottom: 15px;
+      text-transform: uppercase;
+    }
+
+    .weather__pic {
+      display: block;
+      margin-bottom: 15px;
+    }
+  </style>
+</head>
+<body>
+  <ul class="weather">
+    <li class="weather__item">
+      <div class="weather__weekday">Вт</div>
+      <img class="weather__pic" src="https://webref.ru/assets/files/weather-clear.png" alt="weather picture" />
+      <div class="weather__description">Солнечно</div>
+    </li>
+    <li class="weather__item">
+      <div class="weather__weekday">Ср</div>
+      <img class="weather__pic" src="https://webref.ru/assets/files/weather-overcast.png" alt="weather picture" />
+      <div class="weather__description">Облачно</div>
+    </li>
+    <li class="weather__item">
+      <div class="weather__weekday">Чт</div>
+      <img class="weather__pic" src="https://webref.ru/assets/files/weather-showers.png" alt="weather picture" />
+      <div class="weather__description">Дождливо</div>
+    </li>
+  </ul>
+</body>
+</html>

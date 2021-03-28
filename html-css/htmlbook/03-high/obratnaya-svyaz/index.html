@@ -1,0 +1,58 @@
+﻿<!-- description: http://htmlbook.ru/practical/obratnaya-svyaz -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title></title>
+    <style>
+      .feedback {
+        position: fixed;
+        top: 70%;
+        left: -325px;
+
+        display: flex;
+        width: 325px;
+        height: 120px;
+        padding: 10px;
+        box-sizing: border-box;
+
+        color: #fff;
+
+        background-color: #333;
+
+        transition: 1s;
+      }
+
+      .feedback:hover {
+        left: 0;
+      }
+
+      .feedback__text {
+        margin-left: 10px;
+        margin-right: 10px;
+      }
+
+      .feedback__label {
+        position: absolute;
+        top: 49px;
+        right: -71px;
+
+        padding: 2px 8px;
+        
+        color: #000;
+
+        background-color: #fc0;
+        border-radius: 0 0 10px 10px;
+
+        transform: rotate(-90deg);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="feedback">
+      <img class="feedback__photo" src="http://htmlbook.ru/files/feedback.jpg" alt="manager photo" />
+      <div class="feedback__text">Если у вас возникли вопросы по этому коду, звоните мне по телефону: 555-3298. Звонок платный.</div>
+      <div class="feedback__label">Обратная связь</div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,47 @@
+<!-- description: https://webref.ru/individual/1970 -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>404</title>
+  <style type="text/css">
+    html {
+      height: 100%;
+    }
+
+    body {
+      position: relative;
+
+      display: flex;
+      min-height: 100%;
+      margin: 0;
+      padding: 0;
+
+      background: url("https://webref.ru/assets/files/travolta.jpg") 0 0 / cover no-repeat;
+    }
+
+    body::after {
+      content: "";
+
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -1;
+
+      width: 100%;
+      height: 100%;
+
+      background-color: rgb(0, 0, 0, 0.87);
+    }
+
+    .text-404 {
+      margin: auto;
+    
+      font-size: 128px;
+      color: #D7D7D7;
+    }
+  </style>
+</head>
+<body>
+  <span class="text-404">404</span>
+</body>
+</html>

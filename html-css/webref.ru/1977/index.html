@@ -1,0 +1,95 @@
+﻿<!-- description: https://webref.ru/individual/1977 -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title></title>
+    <style>
+      :root {
+        --header-height: 60px;
+      }
+
+      body {
+        height: 2000px;
+        margin: 0;
+        padding: 0;
+
+        background-color: #F8F8F8;
+      }
+
+      .container {
+        width: 500px;
+        margin: auto;
+        box-sizing: border-box;
+      }
+
+      .header {
+        display: flex;
+        height: var(--header-height);
+
+        color: #fff;
+        font-size: 21px;
+
+        background-color: #333333;
+      }
+
+      .header__text {
+        margin: 0;
+        padding: 0;
+      }
+
+      .main {
+        position: relative;
+
+        height: calc(100% - var(--header-height));
+        padding-top: 15px;
+        padding-bottom: 15px;
+      }
+
+      .main__container {
+        height: 100%;
+        padding: 35px 20px;
+
+        background-color: #fff;
+        box-shadow: 0 0 10px 0px rgb(0, 0, 0, 0.2);
+      }
+
+      .main__text {
+        margin: 0;
+        padding: 0;
+      }
+
+      .main__social {
+        position: sticky;
+        top: 15px;
+        float: left;
+
+        padding: 0 15px;
+        margin: 0;
+
+        list-style: none; 
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header">
+      <div class="container header__container">
+        <p class="header__text">Максимум</p>
+      </div>
+    </header>
+    <main class="main">
+      <ul class="main__social">
+        <li><a href="#"><img src="https://webref.ru/assets/files/if_vk.png" alt="vk icon" width="64" height="64"></a></li>
+        <li><a href="#"><img src="https://webref.ru/assets/files/if_twitter.png" alt="vk icon" width="64" height="64"></a></li>
+        <li><a href="#"><img src="https://webref.ru/assets/files/if_facebook.png" alt="vk icon" width="64" height="64"></a></li>
+      </ul>
+      <div class="container main__container">
+        <p class="main__text">
+          Максимум притягивает разрыв функции, дальнеёшие выкладки оставим студентам в качестве несложной домашней работы. 
+          Матожидание транслирует неопределенный интеграл
+        </p> 
+      </div>
+    </main>
+
+  </body>
+</html>

@@ -1,0 +1,160 @@
+﻿<!-- description: http://htmlbook.ru/practical/forma-registratsii -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" /> 
+    <title></title>
+    <style>
+      .form {
+        max-width: 500px;
+      }
+
+      .form__body {
+        margin-bottom: 10px;
+        padding: 20px;
+
+        border: 1px solid #D4DADB;
+        border-radius: 2px;
+      }
+
+      .form__field-group {
+        margin: 0 0 30px 0;
+        padding: 0;
+
+        border: none;
+      }
+
+      .form__field-group:last-of-type {
+        margin-bottom: 0;
+      }
+
+      .form__field-group-legend {
+        margin-bottom: 10px;
+      }
+
+      .form__field-wrap {
+        display: flex;
+        align-items: center;
+        margin-bottom: 15px;
+      }
+
+      .form__field-wrap:last-of-type {
+        margin-bottom: 0;
+      }
+
+      .form__field-label {
+        display: block;
+        width: 70px;
+        margin-right: 20px;
+      }
+
+      .form__field {
+        width: 200px;
+        padding: 2px 3px;
+        margin-right: 5px;
+      }
+
+      .form__captcha-wrap {
+        width: 70px;
+        margin-right: 20px;
+      }
+
+      .field__alert {
+        font-size: 14px;
+      }
+
+      .field__alert--success {
+        color: #55C155;
+      }
+
+      .field__alert--success::before {
+        content: "\002714";
+      }
+
+      .field__alert--danger {
+        color: #CF1111;
+        font-weight: 700;
+      }
+
+      .field__alert--danger::before {
+        content: "\002715";
+        margin-right: 8px;
+
+        font-weight: 900;
+      }
+
+      .form__footer {
+        padding: 10px 20px;
+
+        background-color: #E3E3E3;
+        border-radius: 5px;
+      }
+
+      .form__btn--submit {
+        margin-left: 90px;
+        padding: 2px 12px;
+
+        color: #fff;
+
+        border: none;
+        border-radius: 10px;
+        background: radial-gradient(farthest-corner at top center, #26B126, #00E400);
+
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <form class="form">
+      <div class="form__body">
+        <fieldset class="form__field-group">
+          <div class="form__field-wrap">
+            <label class="form__field-label" for="form-name">Имя</label>
+            <input class="form__field" id="form-name" type="text" value="Иван" />
+            <span class="field__alert field__alert--success"></span>
+          </div>
+          <div class="form__field-wrap">
+            <label class="form__field-label" for="form-surname">Фамилия</label>
+            <input class="form__field" id="form-surname" type="text"  value="Копылов" />
+            <span class="field__alert field__alert--success"></span>
+          </div>
+          <div class="form__field-wrap">
+            <label class="form__field-label" for="form-city">Город</label>
+            <input class="form__field" id="form-city" type="text" value="Красн" />
+            <span class="field__alert field__alert--success"></span>
+          </div>
+        </fieldset>
+        <fieldset class="form__field-group">
+          <div class="form__field-wrap">
+            <label class="form__field-label" for="form-email">Эл. почта</label>
+            <input class="form__field" id="form-email" type="email" value="ivan@koylov.ru" />
+            <span class="field__alert field__alert--success"></span>
+          </div>
+          <div class="form__field-wrap">
+            <label class="form__field-label" for="form-password">Пароль</label>
+            <input class="form__field" id="form-password" type="password" value="123456" />
+          </div>
+          <div class="form__field-wrap">
+            <label class="form__field-label" for="form-password-repeat">Повторите</label>
+            <input class="form__field" id="form-password-repeat" type="password" value="123456" />
+            <span class="field__alert field__alert--success"></span>
+          </div>
+        </fieldset>
+        <fieldset class="form__field-group">
+          <legend class="form__field-group-legend">Введите число с картинки</legend>
+          <div class="form__field-wrap">
+            <div class="form__captcha-wrap">
+              <img class="form__captcha" src="https://ds04.infourok.ru/uploads/ex/0121/0005a670-4ebd4b3d/hello_html_181ad3f2.gif" width="70" />
+            </div>
+            <input class="form__field" type="number" value="67829" />
+            <span class="field__alert field__alert--danger">Неправильное число</span>
+          </div>
+        </fieldset>
+      </div>
+      <div class="form__footer">
+        <button class="form__btn form__btn--submit" type="submit">Зарегистрироваться</button>
+      </div>
+    </form>
+  </body>
+</html>

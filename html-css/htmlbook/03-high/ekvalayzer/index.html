@@ -1,0 +1,62 @@
+﻿<!-- description: http://htmlbook.ru/practical/ekvalayzer -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title></title>
+    <style>
+      body {
+        background-color: #333333;
+      }
+
+      .columns {
+        display: flex;
+        align-items: flex-end;
+        padding: 20px;
+      }
+
+      .column {
+        width: 40px;
+        margin-right: 10px;
+
+        background: repeating-linear-gradient(to bottom,transparent, transparent 20px, #333333 20px, #333333 23px), 
+                    linear-gradient(to bottom, #FFCF57, #FF8D02);
+        border-radius: 5px 5px 0 0;
+      }
+
+      .column:last-of-type {
+        margin-right: 0;
+      }
+
+      .column--2 {
+        height: calc(20px + 23px * 1);
+      }
+
+      .column--3 {
+        height: calc(20px + 23px * 2);
+      }
+
+      .column--5 {
+        height: calc(20px + 23px * 4);
+      }
+
+      .column--8 {
+        height: calc(20px + 23px * 7);
+      }
+
+      .column--10 {
+        height: calc(20px + 23px * 9);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="columns">
+      <div class="column column--5"></div>
+      <div class="column column--2"></div>
+      <div class="column column--8"></div>
+      <div class="column column--10"></div>
+      <div class="column column--5"></div>
+      <div class="column column--3"></div>
+    </div>
+  </body>
+</html>

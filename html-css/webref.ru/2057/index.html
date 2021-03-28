@@ -1,0 +1,110 @@
+<!-- description: https://webref.ru/individual/2057 -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <style type="text/css">
+    .recipe {
+      width: 250px;
+      margin: 20px 10px;
+    }
+
+    .recipe__header {
+      margin: 0 0 15px;
+
+      color: #A1BD57;
+      font-size: 30px;
+    }
+
+    .recipe__list {
+      margin: 0;
+      padding: 0;
+
+      list-style: none;
+    }
+
+    .recipe__item:last-of-type {
+      margin-bottom: 0;
+    }
+
+    .recipe__link {
+      display: block;
+
+      font-size: 20px;
+      font-weight: 500;
+      line-height: 30px;
+      color: #A58039;
+      text-decoration: none;
+    }
+
+    .recipe__link:before {
+      content: '★';
+
+      margin-right: 3px;
+
+      font-weight: 700;
+      color: #A44823;
+    }
+
+    .recipe__link:visited,
+    .recipe__link:hover,
+    .recipe__link:active,
+    .recipe__link:focus {
+      color: #A58039;
+      text-decoration: none;
+    }
+
+    .recipe__amount {
+      float: right;
+
+      width: 25px;
+      height: 25px;
+      margin-top: 3px;
+
+      font-size: 16px;
+      line-height: 25px;
+      text-align: center;
+
+      background-color: #E6E1D7;
+      border-radius: 50%;
+    }
+  </style>
+</head>
+<body>
+  <div class="recipe">
+    <h1 class="recipe__header">Рецепты</h1>
+    <ul class="recipe__list">
+      <li class="recipe__item">
+        <a class="recipe__link" href="#">
+          <span class="recipe__link-text">Салаты</span>
+          <span class="recipe__amount">10</span>
+        </a>
+      </li>
+      <li class="recipe__item">
+        <a class="recipe__link" href="#">
+          <span class="recipe__link-text">Курица</span>
+          <span class="recipe__amount">12</span>
+        </a>
+      </li>
+      <li class="recipe__item">
+        <a class="recipe__link" href="#">
+          <span class="recipe__link-text">Рыба</span>
+          <span class="recipe__amount">8</span>
+        </a>
+      </li>
+      <li class="recipe__item">
+        <a class="recipe__link" href="#">
+          <span class="recipe__link-text">Десерт</span>
+          <span class="recipe__amount">6</span>
+        </a>
+      </li>
+      <li class="recipe__item">
+        <a class="recipe__link" href="#">
+          <span class="recipe__link-text">Выпечка</span>
+          <span class="recipe__amount">16</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</body>
+</html>
