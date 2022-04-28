@@ -1,0 +1,17 @@
+<!-- description: http://learn.javascript.ru/task/find-html-comments -->
+<html>
+  <head>
+    <meta charset="utf-8"/>
+  </head>
+  <body>
+    <script>
+      let regexp = /<!--([\s]|[^\s])*?-->/g;
+
+      let str = `... <!-- My -- comment
+       test --> ..  <!----> ..
+      `;
+
+      alert( str.match(regexp) ); // '<!-- My -- comment \n test -->', '<!---->'
+    </script>
+  </body>
+</html>

@@ -1,0 +1,58 @@
+﻿<!-- description: https://webref.ru/individual/1952 -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title></title>
+    <style>
+      .block {
+        display: inline-block;
+        width: 500px;
+        padding: 20px;
+        box-sizing: border-box;
+
+        background-color: #F5F4F1;
+      }
+
+      .block__part {
+        display: inline-block;
+      }
+
+      .block__part--left {
+        width: 65%;
+        padding-right: 10px;
+
+        border-right: 2px solid #BC8C59;
+      }
+
+      .block__part--right {
+        width: 30%;
+        margin-left: 5px;
+
+        vertical-align: top;
+      } 
+
+      .block__img-source {
+        text-align: right;
+      }
+
+      .block__header {
+        margin: 0;
+        padding: 0;
+
+        font-weight: 500;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="block">
+      <div class="block__part block__part--left">
+        <img class="block__img" src="https://webref.ru/assets/files/girl-guitar.jpg" alt="girl with guitar" />
+        <div class="block__img-source">Pixabay</div>
+      </div>
+      <div class="block__part block__part--right">
+        <h2 class="block__header">Девушка с гитарой</h2>
+      </div>
+    </div>
+  </body>
+</html>

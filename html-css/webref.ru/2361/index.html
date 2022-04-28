@@ -1,0 +1,91 @@
+<!-- description: https://webref.ru/individual/2361 -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <style type="text/css">
+    .form {
+      font-family: sans-serif;
+    }
+
+    .form__header {
+      padding: 17px;
+
+      background-color: #E3EFEF;
+    }
+
+    .form__header-text {
+      margin: 0;
+      padding: 0;
+
+      font-weight: 500;
+      font-size: 24px;
+    }
+
+    .form__body {
+      padding: 17px;
+
+      background-color: #EEF8FA;
+      border: 1px solid #D0DCDC;
+      border-right: none;
+      border-left: none;
+    }
+
+    .form__item {
+      margin-bottom: 15px;
+    }
+
+    .form__item:last-of-type {
+      margin-bottom: 0;
+    }
+
+    .form__field {
+      width: 100%;
+      padding: 13px 14px;
+      box-sizing: border-box;
+
+      border: 1px solid #D0DCDC;
+    }
+
+    .form__footer {
+      padding: 17px;
+
+      text-align: right;
+
+      background-color: #E3EFEF;
+    }
+
+    .form__button {
+      padding: 9px 25px;
+
+      color: #fff;
+
+      background-color: #54B5E0;
+      border: none;
+
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <form class="form" action="" method="POST">
+    <div class="form__header">
+      <h2 class="form__header-text">Регистрация</h2>
+    </div>
+    <div class="form__body">
+      <div class="form__item">
+        <input class="form__field" type="email" placeholder="Электронная почта" />
+      </div>
+      <div class="form__item">
+        <input class="form__field" type="password" placeholder="Пароль" />
+      </div>
+      <div class="form__item">
+        <input class="form__field" type="password" placeholder="Подтвердите пароль" />
+      </div>
+    </div>
+    <div class="form__footer">
+      <button class="form__button">Дальше</button>
+    </div>
+  </form>
+</body>
+</html>

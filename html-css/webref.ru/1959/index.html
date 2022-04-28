@@ -1,0 +1,72 @@
+<!-- description: https://webref.ru/individual/1959 -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title></title>
+    <style>
+      body {
+        display: flex;
+      }
+
+      .nav {
+        margin: 15px auto;
+        padding: 0;
+
+        list-style-type: none;
+      }
+
+      .nav__item {
+        display: inline-block;
+        margin-right: 10px;
+      }
+
+      .nav__item:last-of-type {
+        margin-right: 0;
+      }
+
+      .nav__link {
+        display: inline-block;
+        padding: 6px 11px;
+
+        text-decoration: none;
+        color: #0F2541;
+
+        border: 1px solid #0F2541;
+        border-radius: 50%;
+      }
+
+      .nav__link--prev,
+      .nav__link--next {
+        padding: 6px 32px;
+        border-radius: 25px;
+      }
+
+      .nav__link--current {
+        background-color: #F60;
+        border-color: #F60;
+
+        color: #fff;
+      }
+    </style>
+  </head>
+  <body>
+    <ul class="nav">
+      <li class="nav__item">
+        <a class="nav__link nav__link--prev" href="#">&#8592;</a>
+      </li>
+      <li class="nav__item">
+        <a class="nav__link" href="#">1</a>
+      </li>
+      <li class="nav__item">
+        <a class="nav__link nav__link--current" href="#">2</a>
+      </li>
+      <li class="nav__item">
+        <a class="nav__link" href="#">3</a>
+      </li>
+      <li class="nav__item">
+        <a class="nav__link nav__link--next" href="#">&#8594;</a>
+      </li>
+    </ul>
+  </body>
+</html>

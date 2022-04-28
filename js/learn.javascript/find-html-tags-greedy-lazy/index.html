@@ -1,0 +1,15 @@
+<!-- description: http://learn.javascript.ru/task/find-html-tags-greedy-lazy -->
+<html>
+  <head>
+    <meta charset="utf-8"/>
+  </head>
+  <body>
+    <script>
+      let regexp = /<[^>]+>/g;
+
+      let str = '<> <a href="/"> <input type="radio" checked> <b>';
+
+      alert( str.match(regexp) ); // '<a href="/">', '<input type="radio" checked>', '<b>'
+    </script>
+  </body>
+</html>
