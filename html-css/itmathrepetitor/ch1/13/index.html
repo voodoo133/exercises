@@ -1,0 +1,47 @@
+<!-- http://www.itmathrepetitor.ru/zadachi-po-html-i-css-zadacha-13-zapis-na-kursy/-->
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Задача 13</title>
+  </head>
+  <body>
+    <h3>Запись на курсы</h3>
+    <hr />
+    <form method="POST">
+      <div>
+        Имя:<br/>
+        <input type="text" name="first-name" value="Алексей" />
+      </div>
+      <br/>
+      <div>
+        Язык программирования:<br/>
+        <div>
+          <label><input type="radio" name="lang" value="С++" />C++</label>
+        </div>
+        <div>
+          <label><input type="radio" name="lang" value="PHP" checked/>PHP</label>
+        </div>
+        <div>
+          <label><input type="radio" name="lang" value="Python" />Python</label>
+        </div>
+      </div>
+      <br/>
+      <div>
+        Дополнительная информация:<br/>
+        <textarea cols="28" rows="4" name="additional">Есть опыт программирования на С++</textarea>
+      </div>
+      <br/>
+      <div>
+        Секретное слово:<br/>
+        <input type="password" name="pass" value="Я люблю письки">
+      </div>
+      <br/>
+      <button type="submit">Отправить</button>
+      <button type="reset">Очистить</button>
+    </form>
+    <br/ >
+    <hr />
+  </body>
+</html>

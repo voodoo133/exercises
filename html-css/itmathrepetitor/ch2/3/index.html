@@ -1,0 +1,51 @@
+<!-- http://www.itmathrepetitor.ru/zadachi-po-html-i-css-bukva-i-stroka/ -->
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+  <title>Буква и строка</title>
+
+  <style>
+    html {
+      width: 100%;
+      height: 100%;
+    }
+
+    body {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      justify-content: center;
+      align-items: center;
+
+      background-image: url("https://img-fotki.yandex.ru/get/67890/136164467.17/0_12bc81_21263ac1_orig.png");
+    }
+
+    .block {
+      width: 175px;
+      
+      font-size: 18px;
+    }
+
+    .first-line {
+      display: inline-block;
+      color: #0000FF;
+    }
+
+    .first-line::first-letter {
+      font-size: 32px;
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <div class="block">
+    <span class="first-line">Сайт с </span><br/>
+    задачами по<br/>
+    HTML/CSS<br/>
+    <a href="http://www.itmathrepetitor.ru" target="_blank">www.itmathrepetitor.ru</a>
+  </div>
+</body>
+</html>

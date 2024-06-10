@@ -1,0 +1,73 @@
+<!-- http://www.itmathrepetitor.ru/zadachi-po-html-i-css-matematicheskie-zadachi/ -->
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+  <title>Математические задачи</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+
+    html {
+      width: 100%;
+      height: 100%;
+    }
+
+    body {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      justify-content: center;
+      align-items: center;
+
+      font-family: Verdana, Georgia, Palatino, serif;
+
+      background-image: url("https://img-fotki.yandex.ru/get/67890/136164467.17/0_12bc81_21263ac1_orig.png");
+    }
+
+    .block {
+      width: 420px;
+    }
+
+    h3 {
+      margin-bottom: 10px;
+    }
+
+    ol {
+      list-style: none;
+
+      counter-reset: num;
+    }
+
+    ol li {
+      margin-bottom: 16px;
+    }
+
+    ol li:last-child {
+      margin-bottom: 0;
+    }
+
+    ol li:before {
+      content: counter(num)')'; 
+      counter-increment: num;
+    }
+  </style>
+</head>
+<body>
+  <div class="block">
+    <h3>Задачи:</h3>
+    <ol>
+      <li>
+        Решите уравнение <em>x<sup>2</sup>y<sup>3</sup>+xy=2</em> в целых числах
+      </li>
+      <li>
+        Найдите <em>a<sub>2015</sub></em>, если <em>a<sub>n+1</sub>=2a<sub>n</sub>-2</em> и <em>a<sub>1</sub>=3</em>
+      </li>
+    </ol>
+  </div>
+</body>
+</html>
